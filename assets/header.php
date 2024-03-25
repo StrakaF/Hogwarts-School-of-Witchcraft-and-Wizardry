@@ -1,4 +1,8 @@
 <header>
+
+<div class="logo">
+    <img src="./img/hogwarts-logo.png" alt="Hogwarts-logo">
+</div>
     <nav>
         <ul>
             <li><a href="index.php">Úvodná strana</a></li>
