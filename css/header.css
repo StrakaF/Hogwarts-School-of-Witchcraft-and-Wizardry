@@ -18,6 +18,7 @@ header {
     margin-left: 1.25rem;
 }
 
+
 /* Navigation styles */
 
 nav {
@@ -37,4 +38,5 @@ nav li a {
 
 .menu-icon {
     display: none;
+    cursor: pointer;
 }

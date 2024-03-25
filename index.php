@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Úvodná strana</title>
+    <!-- Links -->
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./query/header-query.css">
@@ -13,8 +14,6 @@
     
     <?php require "assets/header.php"; ?>
 
-    <!-- <i class="fa-solid fa-bars"></i>
-    <i class="fa-solid fa-xmark"></i> -->
         
     <main>
         <section class="main-heading">
