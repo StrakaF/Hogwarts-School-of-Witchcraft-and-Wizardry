@@ -13,6 +13,5 @@
 
     <div class="menu-icon">
         <i class="fa-solid fa-bars"></i>
-        <!-- <i class="fa-solid fa-xmark"></i> -->
     </div>
 </header>
