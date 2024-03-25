@@ -5,4 +5,13 @@ main {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading {
+    text-align: center;
 }
