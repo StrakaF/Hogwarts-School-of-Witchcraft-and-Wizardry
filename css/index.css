@@ -1,0 +1,8 @@
+main {
+    height: 100vh;
+    background: linear-gradient(#000000, #00000092),
+                url(../img/background.webp);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
