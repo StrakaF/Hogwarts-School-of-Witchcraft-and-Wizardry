@@ -1,5 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Header styles (Whole section) */
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: #000;
+    height: 4.375rem;
+}
+
+.logo {
+    flex-grow: 1;
+}
+
+.logo img {
+    width: 3.125rem;
+    margin-left: 1.25rem;
+}
+
+/* Navigation styles */
+
+nav {
+    margin-right: 1.875rem;
+}
+
+nav li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: .625rem;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
 }
