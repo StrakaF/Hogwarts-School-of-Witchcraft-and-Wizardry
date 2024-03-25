@@ -43,13 +43,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     </section>
 </main>
 
-
-<a href="jeden-ziak.php">Jeden žiak</a><br>
-<a href="index.php">Späť na úvodnú stranu.</a><br>
-<a href="ziaci.php">Všetci žiaci</a><br>
-
-
-
 <?php require "assets/footer.php"?>
 
 </body>

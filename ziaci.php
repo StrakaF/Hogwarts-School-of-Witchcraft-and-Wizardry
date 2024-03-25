@@ -41,10 +41,6 @@ $students = getAllStudents($connection,"id, first_name, second_name");
         </section>
     </main>
 
-        <a href="jeden-ziak.php">Jeden žiak</a><br>
-        <a href="index.php">Späť na úvodnú stranu.</a><br>
-        <a href="pridat-ziaka.php">Pridať žiaka</a><br>
-    
-        <?php require "assets/footer.php" ?>
+    <?php require "assets/footer.php" ?>
 </body>
 </html>

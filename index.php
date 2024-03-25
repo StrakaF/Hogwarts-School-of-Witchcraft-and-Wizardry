@@ -7,17 +7,13 @@
 </head>
 <body>
     
+    <?php require "assets/header.php"; ?>
         
     <main>
         <section class="main-heading">
                 <h1>Škola čarov a kúziel, Welcome!</h1>
         </section>
 
-        <section>
-            <a href="ziaci.php">Zoznam žiakov</a><br>
-            <a href="jeden-ziak.php">Jeden žiak</a><br>
-            <a href="pridat-ziaka.php">Pridať žiaka</a><br>
-        </section>
     </main>
 
     <footer>

@@ -48,9 +48,6 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
 
     <br>
 
-    <a href="ziaci.php">Zoznam žiakov</a><br>
-    <a href="index.php">Uvodna strana </a><br>
-    <a href="pridat-ziaka.php">Pridať žiaka</a><br>
 
     <?php require "assets/footer.php" ?>
 </body>
