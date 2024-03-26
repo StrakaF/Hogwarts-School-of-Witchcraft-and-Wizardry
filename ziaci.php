@@ -17,7 +17,6 @@ $students = getAllStudents($connection,"id, first_name, second_name");
     <!-- Css links -->
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/footer.css">
     <!-- Query links -->
     <link rel="stylesheet" href="./query/header-query.css">

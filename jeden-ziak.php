@@ -21,7 +21,6 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
     <!-- Css links -->
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/footer.css">
     <!-- Query links -->
     <link rel="stylesheet" href="./query/header-query.css">
