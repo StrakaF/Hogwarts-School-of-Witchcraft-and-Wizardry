@@ -66,7 +66,7 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
 
         //Spustenie príkazu a následné presmerovanie na konkrétneho žiaka 
         if(mysqli_stmt_execute($statement)) {
-          redirectUrl("/www2databaza/jeden-ziak.php?id=$id");
+          redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
         //Oznámenie o chybe
         } else {
             echo mysqli_error($connection);
@@ -95,7 +95,7 @@ function deleteStudent($connection, $id) {
         mysqli_stmt_bind_param($stmt, "i", $id);
 
         if(mysqli_stmt_execute($stmt)) {
-            redirectUrl("/www2databaza/ziaci.php");
+            redirectUrl("/Bradavice-projekt/admins/ziaci.php");
         }
     } else {
         echo mysqli_error($connection);
@@ -156,7 +156,7 @@ function createStudent ($connection, $first_name, $second_name, $age, $life, $co
     if(mysqli_stmt_execute($statement)) {
         $id = mysqli_insert_id($connection);
 
-        redirectUrl("/www2databaza/jeden-ziak.php?id=$id");
+        redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
     } else {
         echo mysqli_stmt_error($statement);
     }
