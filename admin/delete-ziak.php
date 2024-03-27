@@ -39,10 +39,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
         </section>
     </main>
-
-    <br>
-    <a href="ziaci.php">Späť na zoznam žiakov</a>
-
+    
     <?php require "../assets/footer.php" ?>
     
     <script src="../js/header.js"></script> 

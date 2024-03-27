@@ -95,7 +95,7 @@ function deleteStudent($connection, $id) {
         mysqli_stmt_bind_param($stmt, "i", $id);
 
         if(mysqli_stmt_execute($stmt)) {
-            redirectUrl("/Bradavice-projekt/admins/ziaci.php");
+            redirectUrl("/Bradavice-projekt/admin/ziaci.php");
         }
     } else {
         echo mysqli_error($connection);

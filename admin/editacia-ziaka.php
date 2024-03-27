@@ -2,7 +2,7 @@
 
     //Súbory s funkciami na pripojenie k databáze a  získanie žiaka z DB podla ID 
     require "../assets/database.php";
-    require "../sassets/ziak.php";
+    require "../assets/ziak.php";
 
     //Pripojenie do DB
     $connection = connectionDB();
