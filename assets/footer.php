@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; Škola čarov a kúziel, Filip Straka</p>
+    <p>&copy; Škola čarov a kúziel&nbsp;, Filip Straka</p>
 </footer>
