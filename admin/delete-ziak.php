@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Zmazanie žiaka</title>
 </head>
 <body>
-    <?php require "assets/header.php" ?>
+    <?php require "../assets/admin-header.php" ?>
 
     <h1>Potvrďte zmazanie žiaka</h1>
     <main>

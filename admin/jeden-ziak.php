@@ -30,7 +30,7 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
 </head>
 <body>
 
-    <?php require "assets/header.php" ?>
+    <?php require "../assets/admin-header.php" ?>
     
     <main>
         <section class="main-heading">

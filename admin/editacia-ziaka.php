@@ -59,7 +59,7 @@
     <title>Editovanie žiaka</title>
 </head>
 <body>
-    <?php require "assets/header.php"; ?>
+    <?php require "../assets/admin-header.php" ?>
 
     <?php require "../assets/formular-ziak.php"; ?>
 

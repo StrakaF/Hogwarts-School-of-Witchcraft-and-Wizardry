@@ -26,8 +26,8 @@ $students = getAllStudents($connection,"id, first_name, second_name");
 </head>
 <body>
 
-    <?php require "assets/header.php" ?>
-
+    <?php require "../assets/admin-header.php" ?>
+    
     <main>
         <section class="main-heading">
             <h1>Zoznam žiakov školy</h1>
