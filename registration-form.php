@@ -19,7 +19,15 @@
 
     <main>
         <section class="registration-form">
-            
+            <form action="" method="POST" >
+                <input type="text" name="first-name" placeholder="Krstné meno"><br>
+                <input type="text" name="second-name" placeholder="Priezvisko"><br>
+                <input type="email" name="email" placeholder="Email"><br>
+                <input type="password" name="password" placeholder="Heslo"><br>
+                <input type="password" name="password-again" placeholder="Zopakujte heslo"><br>
+                <input type="submit" value="Zaregistrovať">
+
+            </form>
         </section>
     </main>    
 
