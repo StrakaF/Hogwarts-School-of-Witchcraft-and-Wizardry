@@ -17,4 +17,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $id = createUser($connection, $first_name, $second_name, $email, $password);
 
+    if(!empty($id)) {
+        redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+    } else {
+        echo "Užívateľa sa nepodarilo pridať.";
+    }
 }
