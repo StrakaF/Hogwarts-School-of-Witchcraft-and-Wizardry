@@ -19,7 +19,7 @@
 
     <main>
         <section class="registration-form">
-            <form action="" method="POST" >
+            <form action="admin/after-registration.php" method="POST" >
                 <input type="text" name="first-name" placeholder="Krstné meno"><br>
                 <input type="text" name="second-name" placeholder="Priezvisko"><br>
                 <input type="email" name="email" placeholder="Email"><br>
