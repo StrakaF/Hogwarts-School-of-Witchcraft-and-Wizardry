@@ -17,7 +17,11 @@
     
     <?php require "assets/header.php"; ?>
 
-        
+    <main>
+        <section class="registration-form">
+            
+        </section>
+    </main>    
 
     <?php require "assets/footer.php"; ?>
 
