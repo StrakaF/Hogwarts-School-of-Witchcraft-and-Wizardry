@@ -3,6 +3,13 @@
 require "../assets/database.php";
 require "../assets/url.php";
 require "../assets/ziak.php";
+require "../assets/auth.php";
+
+session_start();
+
+if( !isLoggedIn() ) {
+    die("Nepovolený prístup");
+}
 
 
 $first_name = null;

@@ -31,4 +31,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "Užívateľa sa nepodarilo pridať.";
     }
+} else {
+    echo "Nepovolený prístup!";
 }
