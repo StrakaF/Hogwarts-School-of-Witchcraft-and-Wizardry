@@ -18,6 +18,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $id = createUser($connection, $first_name, $second_name, $email, $password);
 
     if(!empty($id)) {
+        /*Zabraňuje tzv. fixation attack, viac tu:
+        https://owasp.org/www-community/attacks/Session_fixation*/
+        session_regenerate_id(true);
+
         redirectUrl("/Bradavice-projekt/admin/ziaci.php");
     } else {
         echo "Užívateľa sa nepodarilo pridať.";
