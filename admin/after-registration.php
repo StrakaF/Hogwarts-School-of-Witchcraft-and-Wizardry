@@ -22,6 +22,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         https://owasp.org/www-community/attacks/Session_fixation*/
         session_regenerate_id(true);
 
+        //Nastavenie že je užívateľ prihlásený
+        $_SESSION["is_logged_in"] = true;
+        //Nastavenie ID užívateľa
+        $_SESSION["logged_in_user_id"] = $id;
+
         redirectUrl("/Bradavice-projekt/admin/ziaci.php");
     } else {
         echo "Užívateľa sa nepodarilo pridať.";
