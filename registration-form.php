@@ -26,7 +26,6 @@
                 <input type="password" name="password" placeholder="Heslo"><br>
                 <input type="password" name="password-again" placeholder="Zopakujte heslo"><br>
                 <input type="submit" value="Zaregistrovať">
-
             </form>
         </section>
     </main>    
