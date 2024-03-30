@@ -9,6 +9,7 @@
         <ul>
             <li><a href="ziaci.php">Zoznam žiakov</a></li>
             <li><a href="pridat-ziaka.php">Pridať žiaka</a></li>
+            <li><a href="log-out.php">Odhlásiť sa</a></li>
         </ul>
     </nav>
 
