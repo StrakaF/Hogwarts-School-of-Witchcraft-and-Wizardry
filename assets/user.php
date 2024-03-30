@@ -33,6 +33,13 @@ function createUser ($connection, $first_name, $second_name, $email, $password )
 }  
 
 /**
+ * Overenie užívateľa pomocou emailu a hesla
+ * 
+ * @param object $connection - pripojenie do DB
+ * @param string $log_email - email z formulára pre prihlásenie
+ * @param string $log_password - heslo z formulára pre prihlásenie
+ * 
+ * @return boolean true - pokiaľ je prihlásenie úspešné, false ak nie
  * 
  */
 function authentication($connection, $log_email, $log_password) {
