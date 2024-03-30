@@ -20,7 +20,7 @@
     <main>
         <section class="form">
             <h1>Prihlásenie</h1>
-            <form action="" method="POST">
+            <form action="admin/login.php" method="POST">
                 <input type="email" name="login-email" placeholder="Email používateľa"><br>
                 <input type="password" name="login-password" placeholder="Heslo používateľa"><br>
                 <input type="submit" value="Prihlásiť sa">
