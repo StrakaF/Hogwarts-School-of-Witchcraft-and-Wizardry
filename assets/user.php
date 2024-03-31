@@ -69,4 +69,28 @@ function authentication($connection, $log_email, $log_password) {
     }
 }
 
+
+function getUserId($connection, $email) {
+    $sql = "SELECT id 
+            FROM user
+            WHERE id = ?";
+
+    $stmt = mysqli_prepare($connection, $sql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $email);
+
+        if(mysqli_stmt_execute($stmt)) {
+            $result = mysqli_stmt_get_result($stmt);
+            $id_database = mysqli_fetch_row($result); // Array
+            $user_id = $id_database[0];
+
+            return $user_id;
+        }
+    } else {
+        echo mysqli_error($connection);
+    }
+
+
+}
    

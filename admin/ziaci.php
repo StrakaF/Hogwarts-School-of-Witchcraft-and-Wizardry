@@ -3,6 +3,7 @@
 require "../assets/database.php";
 require "../assets/ziak.php";
 require "../assets/auth.php";
+require "../assets/user.php";
 
 session_start();
 
