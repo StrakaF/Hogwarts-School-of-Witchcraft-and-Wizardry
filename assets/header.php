@@ -9,6 +9,7 @@
         <ul>
             <li><a href="index.php">Úvodná strana</a></li>
             <li><a href="registration-form.php">Registrácia</a></li>
+            <li><a href="signin.php">Prihlásenie</a></li>
         </ul>
     </nav>
 
