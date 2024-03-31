@@ -69,11 +69,19 @@ function authentication($connection, $log_email, $log_password) {
     }
 }
 
+/**
+ * Získanie ID užívateľa
+ * 
+ * @param object $connection - pripojenie do DB
+ * @param string $email - email užívateľa
+ * 
+ * @return int - ID uźivateľa
+ */
 
 function getUserId($connection, $email) {
     $sql = "SELECT id 
             FROM user
-            WHERE id = ?";
+            WHERE email = ?";
 
     $stmt = mysqli_prepare($connection, $sql);
 
