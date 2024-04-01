@@ -55,6 +55,7 @@ function authentication($connection, $log_email, $log_password) {
         // Postup vyťahovania hesla
         if(mysqli_stmt_execute($stmt)) {
             $result = mysqli_stmt_get_result($stmt); // Zo stmt vyberieme výsledok a ukladáme do result
+            
             // Vyťahujeme z objektu result, num_rows
             if($result->num_rows !=0) {
                 $password_database = mysqli_fetch_row($result); // Tu je v premennej pole
@@ -67,9 +68,6 @@ function authentication($connection, $log_email, $log_password) {
             } else {
                 echo "Chyba pri zadávaní emailu.";
             }
-            
-
-            
         }
 
     } else { 
