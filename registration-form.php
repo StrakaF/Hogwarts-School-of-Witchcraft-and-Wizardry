@@ -20,13 +20,14 @@
 
     <main>
         <section class="registration-form">
+            <h1>Registrácia</h1>
             <form action="admin/after-registration.php" method="POST" >
-                <input type="text" name="first-name" placeholder="Krstné meno"><br>
-                <input type="text" name="second-name" placeholder="Priezvisko"><br>
-                <input type="email" name="email" placeholder="Email"><br>
-                <input type="password" name="password" placeholder="Heslo"><br>
-                <input type="password" name="password-again" placeholder="Zopakujte heslo"><br>
-                <input type="submit" value="Zaregistrovať">
+                <input class="reg-input" type="text" name="first-name" placeholder="Krstné meno"><br>
+                <input class="reg-input"  type="text" name="second-name" placeholder="Priezvisko"><br>
+                <input class="reg-input"  type="email" name="email" placeholder="Email"><br>
+                <input class="reg-input"  type="password" name="password" placeholder="Heslo"><br>
+                <input class="reg-input"  type="password" name="password-again" placeholder="Zopakujte heslo"><br>
+                <input class="btn" type="submit" value="Zaregistrovať">
             </form>
         </section>
     </main>    
