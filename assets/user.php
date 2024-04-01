@@ -55,16 +55,24 @@ function authentication($connection, $log_email, $log_password) {
         // Postup vyťahovania hesla
         if(mysqli_stmt_execute($stmt)) {
             $result = mysqli_stmt_get_result($stmt); // Zo stmt vyberieme výsledok a ukladáme do result
-            $password_database = mysqli_fetch_row($result); // Tu je v premennej pole
-            $user_password_database = $password_database[0]; // Tu z neho vyberáme nultý prvok
+            // Vyťahujeme z objektu result, num_rows
+            if($result->num_rows !=0) {
+                $password_database = mysqli_fetch_row($result); // Tu je v premennej pole
+                $user_password_database = $password_database[0]; // Tu z neho vyberáme nultý prvok
 
-            // Ak tu niečo je, tak je to true
-            if($user_password_database) {
-               return password_verify($log_password, $user_password_database); // Porovnáva zadané a reálne heslo užívateľa
+                // Ak tu niečo je, tak je to true
+                if($user_password_database) {
+                    return password_verify($log_password, $user_password_database); // Porovnáva zadané a reálne heslo užívateľa
+                }
+            } else {
+                echo "Chyba pri zadávaní emailu.";
             }
+            
+
+            
         }
 
-    } else {
+    } else { 
         echo mysqli_error($connection);
     }
 }
