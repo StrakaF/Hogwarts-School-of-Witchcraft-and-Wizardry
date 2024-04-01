@@ -22,9 +22,9 @@
         <section class="form">
             <h1>Prihlásenie</h1>
             <form action="admin/login.php" method="POST">
-                <input type="email" name="login-email" placeholder="Email používateľa"><br>
-                <input type="password" name="login-password" placeholder="Heslo používateľa"><br>
-                <input type="submit" value="Prihlásiť sa">
+                <input class="email" type="email" name="login-email" placeholder="Email"><br>
+                <input class="password" type="password" name="login-password" placeholder="Heslo"><br>
+                <input class="btn" type="submit" value="Prihlásiť sa">
             </form>
         </section>
     </main>
