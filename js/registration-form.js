@@ -15,6 +15,10 @@ function checkPasswords() {
         resultText.classList.add("invalid");
         resultText.classList.remove("valid");
     }
+
+    if(firstPasswordValue === "" && secondPasswordValue === "") {
+        resultText.textContent = "";
+    }
 }
 
 firstPassword.addEventListener("input", checkPasswords);
