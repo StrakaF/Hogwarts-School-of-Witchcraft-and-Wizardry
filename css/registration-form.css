@@ -56,3 +56,12 @@
 .btn:hover {
     background:#f0bd30 ;
 }
+
+/* Classy pre JS */
+.valid {
+    color: greenyellow;
+}
+
+.invalid {
+    color: red;
+}

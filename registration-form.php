@@ -25,9 +25,10 @@
                 <input class="reg-input" type="text" name="first-name" placeholder="Krstné meno"><br>
                 <input class="reg-input"  type="text" name="second-name" placeholder="Priezvisko"><br>
                 <input class="reg-input"  type="email" name="email" placeholder="Email"><br>
-                <input class="reg-input"  type="password" name="password" placeholder="Heslo"><br>
-                <input class="reg-input"  type="password" name="password-again" placeholder="Zopakujte heslo"><br>
-                <input class="btn" type="submit" value="Zaregistrovať">
+                <input class="reg-input" id="first-password" type="password" name="password" placeholder="Heslo"><br>
+                <input class="reg-input" id="second-password" type="password" name="password-again" placeholder="Zopakujte heslo"><br>
+                <p id="result-text"></p>
+                <input class="btn" id="submit-button" type="submit" value="Zaregistrovať">
             </form>
         </section>
     </main>    
@@ -35,5 +36,6 @@
     <?php require "assets/footer.php"; ?>
 
     <script src="./js/header.js"></script>
+    <script src="./js/registration-form.js"></script>
 </body>
 </html>
