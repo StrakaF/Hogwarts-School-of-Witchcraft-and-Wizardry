@@ -3,6 +3,7 @@
 require "../assets/database.php";
 require "../assets/ziak.php";
 require "../assets/auth.php";
+require "../assets/url.php";
 
 session_start();
 
@@ -13,7 +14,9 @@ if( !isLoggedIn() ) {
 $connection = connectionDB();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    deleteStudent($connection, $_GET["id"]);
+    if(deleteStudent($connection, $_GET["id"])) {
+        redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+    }
 }
 
 ?>

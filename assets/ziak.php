@@ -62,7 +62,7 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
         mysqli_stmt_bind_param($statement, "ssissi",
         $first_name,$second_name,$age,$life,$college,$id);
 
-        //Spustenie príkazu a následné presmerovanie na konkrétneho žiaka 
+        //Spustenie príkazu a bool true ak je spustený 
         if(mysqli_stmt_execute($statement)) {
             return true;
         //Oznámenie o chybe
@@ -78,7 +78,7 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
  * @param object $connection - prepojenie z DB
  * @param integer $id - id daného žiaka
  * 
- * @return void
+ * @return boolean true - ak dojde ku úspešnému vymazaniu žiaka
  */
 
 function deleteStudent($connection, $id) {
@@ -93,7 +93,7 @@ function deleteStudent($connection, $id) {
         mysqli_stmt_bind_param($stmt, "i", $id);
 
         if(mysqli_stmt_execute($stmt)) {
-            redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+            return true;
         }
     } else {
         echo mysqli_error($connection);
