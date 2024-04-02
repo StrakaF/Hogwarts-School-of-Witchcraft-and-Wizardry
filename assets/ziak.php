@@ -1,7 +1,5 @@
 <?php
 
-require "url.php";
-
 /**
  * Získa jedného žiaka z DB podla ID
  * 
@@ -43,7 +41,7 @@ function getStudent($connection, $id, $columns = "*") { //Napojenie do DB, konre
  * @param string $college - nazov internatu ziaka
  * @param integer $id - ID konkretneho ziaka
  * 
- * @return void 
+ * @return boolean true, ak je updatovanie žiaka úspešné
  */
 
 function updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id ) {
@@ -66,7 +64,7 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
 
         //Spustenie príkazu a následné presmerovanie na konkrétneho žiaka 
         if(mysqli_stmt_execute($statement)) {
-          redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+            return true;
         //Oznámenie o chybe
         } else {
             echo mysqli_error($connection);

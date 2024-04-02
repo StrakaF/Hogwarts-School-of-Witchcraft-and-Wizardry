@@ -4,6 +4,7 @@
     require "../assets/database.php";
     require "../assets/ziak.php";
     require "../assets/auth.php";
+    require "../assets/url.php";
 
     session_start();
 
@@ -45,7 +46,9 @@
         $college = $_POST["college"];
 
         //Funkcia ktorá updatuje info o žiakovi v DB
-        updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id );
+        if(updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id )) {
+            redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+        }
 
     }
 ?>
