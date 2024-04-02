@@ -133,7 +133,7 @@ function getAllStudents($connection, $columns = "*") {
  * @param string $life - informacie o ziakovi
  * @param string $college - nazov internatu ziaka
  * 
- * @return void
+ * @return integer $id - id pridaného žiaka
  */
 
 function createStudent ($connection, $first_name, $second_name, $age, $life, $college ) {
@@ -153,8 +153,7 @@ function createStudent ($connection, $first_name, $second_name, $age, $life, $co
 
     if(mysqli_stmt_execute($statement)) {
         $id = mysqli_insert_id($connection);
-
-        redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+        return $id;
     } else {
         echo mysqli_stmt_error($statement);
     }

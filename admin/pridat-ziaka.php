@@ -28,7 +28,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $connection = connectionDB();
 
-    createStudent($connection, $first_name, $second_name, $age, $life, $college);
+    $id = createStudent($connection, $first_name, $second_name, $age, $life, $college);
+
+    if($id){
+        redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+    } else {
+        echo "Žiak nebol vytvorený.";
+    }
 };
 
 ?> 
