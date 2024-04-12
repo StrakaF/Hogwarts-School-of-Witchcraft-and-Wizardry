@@ -4,8 +4,9 @@
     // require "../assets/database.php";
     require "../assets/ziak.php";
     require "../assets/auth.php";
-    require "../assets/url.php";
+    // require "../assets/url.php";
     require "../classes/Database.php";
+    require "../classes/Url.php";
 
     session_start();
 
@@ -50,7 +51,7 @@
 
         //Funkcia ktorá updatuje info o žiakovi v DB
         if(updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id )) {
-            redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+            Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
         }
 
     }

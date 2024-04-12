@@ -1,9 +1,10 @@
 <?php
 
-require "../assets/url.php";
+// require "../assets/url.php";
 // require "../assets/database.php";
 require "../assets/user.php";
 require "../classes/Database.php";
+require "../classes/Url.php";
 
 session_start();
 
@@ -30,7 +31,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         //Nastavenie ID užívateľa
         $_SESSION["logged_in_user_id"] = $id;
 
-        redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+        Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+
     } else {
         echo "Užívateľa sa nepodarilo pridať.";
     }

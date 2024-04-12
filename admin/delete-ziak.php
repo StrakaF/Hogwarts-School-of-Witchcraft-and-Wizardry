@@ -3,8 +3,9 @@
 // require "../assets/database.php";
 require "../assets/ziak.php";
 require "../assets/auth.php";
-require "../assets/url.php";
+// require "../assets/url.php";
 require "../classes/Database.php";
+require "../classes/Url.php";
 
 session_start();
 
@@ -18,7 +19,7 @@ $connection = $database->connectionDB();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(deleteStudent($connection, $_GET["id"])) {
-        redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+        Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
     }
 }
 

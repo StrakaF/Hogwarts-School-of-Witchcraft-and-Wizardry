@@ -1,6 +1,7 @@
 <?php
 
-require "../assets/url.php";
+// require "../assets/url.php";
+require "../classes/Url.php";
 
 // Initialize the session.
 // If you are using session_name("something"), don't forget it now!
@@ -22,5 +23,5 @@ if (ini_get("session.use_cookies")) {
 // Finally, destroy the session.
 session_destroy();
 
-redirectUrl("/Bradavice-projekt/index.php");
+Url::redirectUrl("/Bradavice-projekt/index.php");
 ?>

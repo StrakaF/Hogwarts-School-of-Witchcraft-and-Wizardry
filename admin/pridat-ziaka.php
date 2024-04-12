@@ -1,7 +1,7 @@
 <?php
 
 // require "../assets/database.php";
-require "../assets/url.php";
+// require "../assets/url.php";
 require "../assets/ziak.php";
 require "../assets/auth.php";
 require "../classes/Database.php";
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $id = createStudent($connection, $first_name, $second_name, $age, $life, $college);
 
     if($id){
-        redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+        Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
     } else {
         echo "Žiak nebol vytvorený.";
     }

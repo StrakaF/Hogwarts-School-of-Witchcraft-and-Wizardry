@@ -1,7 +1,7 @@
 <?php
 
 // require "../assets/database.php";
-require "../assets/url.php";
+// require "../assets/url.php";
 require "../assets/user.php";
 require "../classes/Database.php";
 
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ) {
         //Nastavenie ID užívateľa
         $_SESSION["logged_in_user_id"] = $id;
 
-        redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+        Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
 
     } else {
         $error = "Chyba pri prihlasení";

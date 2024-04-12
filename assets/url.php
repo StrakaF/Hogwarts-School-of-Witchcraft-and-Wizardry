@@ -20,4 +20,3 @@
     }
  };
 
-//Sám som sa pokúsil to vyriešiť, skoncil som vid c. 128 na konci
