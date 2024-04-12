@@ -2,8 +2,9 @@
 
 // require "../assets/database.php";
 // require "../assets/url.php";
-require "../assets/user.php";
+// require "../assets/user.php";
 require "../classes/Database.php";
+require "../classes/User.php";
 
 session_start();
 
@@ -19,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ) {
     $log_email = $_POST["login-email"];
     $log_password = $_POST["login-password"];
 
-    if(authentication($connection, $log_email, $log_password)) {
+    if(User::authentication($connection, $log_email, $log_password)) {
         // Získanie ID uživateľa
         $id = getUserId($connection, $log_email);
 
