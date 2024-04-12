@@ -1,14 +1,17 @@
 <?php
 
 require "../assets/url.php";
-require "../assets/database.php";
+// require "../assets/database.php";
 require "../assets/user.php";
+require "../classes/Database.php";
 
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $connection = connectionDB();
+    // $connection = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
 
     $first_name = $_POST["first-name"];
     $second_name = $_POST["second-name"];
