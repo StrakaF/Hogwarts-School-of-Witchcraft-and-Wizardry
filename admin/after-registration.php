@@ -2,9 +2,10 @@
 
 // require "../assets/url.php";
 // require "../assets/database.php";
-require "../assets/user.php";
+// require "../assets/user.php";
 require "../classes/Database.php";
 require "../classes/Url.php";
+require "../classes/User.php";
 
 session_start();
 
@@ -19,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $id = createUser($connection, $first_name, $second_name, $email, $password);
+    $id = User::createUser($connection, $first_name, $second_name, $email, $password);
 
     if(!empty($id)) {
         /*Zabraňuje tzv. fixation attack, viac tu:
