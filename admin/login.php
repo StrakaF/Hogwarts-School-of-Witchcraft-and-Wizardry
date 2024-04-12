@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ) {
 
     if(User::authentication($connection, $log_email, $log_password)) {
         // Získanie ID uživateľa
-        $id = getUserId($connection, $log_email);
+        $id = User::getUserId($connection, $log_email);
 
         /*Zabraňuje tzv. fixation attack, viac tu:
         https://owasp.org/www-community/attacks/Session_fixation*/
