@@ -1,8 +1,9 @@
 <?php 
 
-require "../assets/database.php"; 
+// require "../assets/database.php"; 
 require "../assets/ziak.php";
 require "../assets/auth.php";
+require "../classes/Database.php";
 
 session_start();
 
@@ -10,7 +11,9 @@ if( !isLoggedIn() ) {
     die("Nepovolený prístup");
 }
 
-$connection = connectionDB();
+// $connection = connectionDB();
+$database = new Database();
+$connection = $database->connectionDB();
 
 if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
     $students = getStudent($connection, $_GET["id"]);

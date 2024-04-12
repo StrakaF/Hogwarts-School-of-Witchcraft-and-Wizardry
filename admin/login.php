@@ -1,8 +1,9 @@
 <?php
 
-require "../assets/database.php";
+// require "../assets/database.php";
 require "../assets/url.php";
 require "../assets/user.php";
+require "../classes/Database.php";
 
 session_start();
 
@@ -11,14 +12,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ) {
     // Kód ktorý sa vykoná len v prípade, že bola odoslaná požiadavka POST
 
     // Pripojenie do DB
-    $conn = connectionDB();
+    // $conn = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
     // Vytiahnutie dát z signin formulára
     $log_email = $_POST["login-email"];
     $log_password = $_POST["login-password"];
 
-    if(authentication($conn, $log_email, $log_password)) {
+    if(authentication($connection, $log_email, $log_password)) {
         // Získanie ID uživateľa
-        $id = getUserId($conn, $log_email);
+        $id = getUserId($connection, $log_email);
 
         /*Zabraňuje tzv. fixation attack, viac tu:
         https://owasp.org/www-community/attacks/Session_fixation*/

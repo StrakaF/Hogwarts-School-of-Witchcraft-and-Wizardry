@@ -1,10 +1,11 @@
 <?php
 
     //Súbory s funkciami na pripojenie k databáze a  získanie žiaka z DB podla ID 
-    require "../assets/database.php";
+    // require "../assets/database.php";
     require "../assets/ziak.php";
     require "../assets/auth.php";
     require "../assets/url.php";
+    require "../classes/Database.php";
 
     session_start();
 
@@ -13,7 +14,9 @@
     }
 
     //Pripojenie do DB
-    $connection = connectionDB();
+    // $connection = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
 
     //Ak je id poslané pomocou "HTTP GET" a je numerické
     if ( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
