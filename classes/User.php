@@ -14,7 +14,7 @@ class User {
      * @return integer $id - id uživateľa
      */
 
-    function createUser ($connection, $first_name, $second_name, $email, $password ) {
+    public static function createUser ($connection, $first_name, $second_name, $email, $password ) {
         
         $sql = "INSERT INTO user (first_name, second_name, email, password )
         VALUES (?, ?, ?, ? )";
@@ -45,7 +45,7 @@ class User {
      * @return boolean true - pokiaľ je prihlásenie úspešné, false ak nie
      * 
      */
-    function authentication($connection, $log_email, $log_password) {
+    public static function authentication($connection, $log_email, $log_password) {
         $sql = "SELECT password
                 FROM user
                 WHERE email = ?";
@@ -87,7 +87,7 @@ class User {
      * @return int - ID uźivateľa
      */
 
-    function getUserId($connection, $email) {
+     public static function getUserId($connection, $email) {
         $sql = "SELECT id 
                 FROM user
                 WHERE email = ?";
