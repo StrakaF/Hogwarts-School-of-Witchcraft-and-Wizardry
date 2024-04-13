@@ -3,13 +3,14 @@
 // require "../assets/database.php";
 // require "../assets/url.php";
 // require "../assets/ziak.php";
-require "../assets/auth.php";
+// require "../assets/auth.php";
 require "../classes/Database.php";
 require "../classes/Student.php";
+require "../classes/Auth.php";
 
 session_start();
 
-if( !isLoggedIn() ) {
+if( !Auth::isLoggedIn() ) {
     die("Nepovolený prístup");
 }
 
