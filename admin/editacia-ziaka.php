@@ -7,6 +7,7 @@
     // require "../assets/url.php";
     require "../classes/Database.php";
     require "../classes/Url.php";
+    require "../classes/Student.php";
 
     session_start();
 

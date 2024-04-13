@@ -13,7 +13,7 @@ class Student {
      *               ak ziak nebol najdeny
      */
 
-    function getStudent($connection, $id, $columns = "*") { //Napojenie do DB, konretne ID
+    public static function getStudent($connection, $id, $columns = "*") { //Napojenie do DB, konretne ID
         $sql = "SELECT $columns
                 FROM student
                 WHERE id = ?"; //Vytvori SQL dotaz, id je "?"
@@ -46,7 +46,7 @@ class Student {
      * @return boolean true, ak je updatovanie žiaka úspešné
      */
 
-    function updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id ) {
+     public static function updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id ) {
 
         //SQL príkaz na aktualizáciu údajov v databáze pre konkrétneho študenta
         $sql = "UPDATE student
@@ -83,7 +83,7 @@ class Student {
      * @return boolean true - ak dojde ku úspešnému vymazaniu žiaka
      */
 
-    function deleteStudent($connection, $id) {
+     public static function deleteStudent($connection, $id) {
         
         $sql = "DELETE 
                 FROM student
@@ -109,7 +109,7 @@ class Student {
      * 
      * @return array - pole objektov, kde každý objekt je jeden žiak
      */
-    function getAllStudents($connection, $columns = "*") {
+    public static function getAllStudents($connection, $columns = "*") {
 
         $sql = "SELECT $columns
 
@@ -138,7 +138,7 @@ class Student {
      * @return integer $id - id pridaného žiaka
      */
 
-    function createStudent ($connection, $first_name, $second_name, $age, $life, $college ) {
+     public static function createStudent ($connection, $first_name, $second_name, $age, $life, $college ) {
         $sql = "INSERT INTO student (first_name, second_name, age, life, college)
         VALUES (?, ?, ?, ?, ? )";
 
