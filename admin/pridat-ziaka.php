@@ -5,6 +5,7 @@
 require "../assets/ziak.php";
 require "../assets/auth.php";
 require "../classes/Database.php";
+require "../classes/Student.php";
 
 session_start();
 
@@ -31,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $database = new Database();
     $connection = $database->connectionDB();
 
-    $id = createStudent($connection, $first_name, $second_name, $age, $life, $college);
+    $id = Student::createStudent($connection, $first_name, $second_name, $age, $life, $college);
 
     if($id){
         Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
