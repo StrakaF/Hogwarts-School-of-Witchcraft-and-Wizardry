@@ -6,6 +6,7 @@ require "../assets/auth.php";
 // require "../assets/url.php";
 require "../classes/Database.php";
 require "../classes/Url.php";
+require "../classes/Student.php";
 
 session_start();
 
@@ -18,7 +19,7 @@ $database = new Database();
 $connection = $database->connectionDB();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    if(deleteStudent($connection, $_GET["id"])) {
+    if(Student::deleteStudent($connection, $_GET["id"])) {
         Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
     }
 }
