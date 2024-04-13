@@ -1,6 +1,5 @@
 <?php
 
-// require "../assets/url.php";
 require "../classes/Url.php";
 
 // Initialize the session.

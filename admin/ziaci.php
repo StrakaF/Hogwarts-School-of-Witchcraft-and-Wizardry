@@ -1,9 +1,5 @@
 <?php 
 
-// require "../assets/database.php";
-// require "../assets/ziak.php";
-// require "../assets/auth.php";
-// require "../assets/user.php";
 require "../classes/Database.php";
 require "../classes/Student.php";
 require "../classes/Auth.php";
