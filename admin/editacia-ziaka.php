@@ -22,7 +22,7 @@
 
     //Ak je id poslané pomocou "HTTP GET" a je numerické
     if ( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
-        $one_student = getStudent($connection,$_GET["id"]);
+        $one_student = Student::getStudent($connection,$_GET["id"]);
 
         //Načíta informácie o študentovi z databázy na základe tohto id
         if ($one_student) {
@@ -51,7 +51,7 @@
         $college = $_POST["college"];
 
         //Funkcia ktorá updatuje info o žiakovi v DB
-        if(updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id )) {
+        if(Student::updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id )) {
             Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
         }
 
