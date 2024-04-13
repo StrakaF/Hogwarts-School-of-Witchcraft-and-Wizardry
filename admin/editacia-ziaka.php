@@ -2,7 +2,7 @@
 
     //Súbory s funkciami na pripojenie k databáze a  získanie žiaka z DB podla ID 
     // require "../assets/database.php";
-    require "../assets/ziak.php";
+    // require "../assets/ziak.php";
     require "../assets/auth.php";
     // require "../assets/url.php";
     require "../classes/Database.php";

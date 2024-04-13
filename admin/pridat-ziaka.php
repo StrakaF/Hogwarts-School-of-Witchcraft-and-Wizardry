@@ -2,7 +2,7 @@
 
 // require "../assets/database.php";
 // require "../assets/url.php";
-require "../assets/ziak.php";
+// require "../assets/ziak.php";
 require "../assets/auth.php";
 require "../classes/Database.php";
 require "../classes/Student.php";
