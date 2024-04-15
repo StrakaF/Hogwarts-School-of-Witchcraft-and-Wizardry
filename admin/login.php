@@ -2,6 +2,7 @@
 
 require "../classes/Database.php";
 require "../classes/User.php";
+require "../classes/Url.php";
 
 session_start();
 

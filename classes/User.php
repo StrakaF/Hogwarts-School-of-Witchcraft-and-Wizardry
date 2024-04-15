@@ -17,7 +17,7 @@ class User {
     public static function createUser ($connection, $first_name, $second_name, $email, $password ) {
         
         $sql = "INSERT INTO user (first_name, second_name, email, password )
-        VALUES (:first_name, second_name, email, password )";
+        VALUES (:first_name, :second_name, :email, :password )";
 
         $stmt = $connection->prepare($sql);
 
@@ -59,7 +59,8 @@ class User {
             $stmt->execute();
 
             if($user = $stmt->fetch()){
-                return password_verify($log_password, $user->password);
+                // var_dump($user);
+                return password_verify($log_password, $user['password']);
             }
 
         } else { 

@@ -3,6 +3,7 @@
 require "../classes/Database.php";
 require "../classes/Student.php";
 require "../classes/Auth.php";
+require "../classes/Url.php";
 
 session_start();
 
