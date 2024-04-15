@@ -13,21 +13,20 @@ class Student {
      *               ak ziak nebol najdeny
      */
 
-    public static function getStudent($connection, $id, $columns = "*") { //Napojenie do DB, konretne ID
+    public static function getStudent($connection, $id, $columns = "*") { 
         $sql = "SELECT $columns
                 FROM student
-                WHERE id = ?"; //Vytvori SQL dotaz, id je "?"
+                WHERE id = :id"; //Vytvorí SQL dotaz"
 
-        $stmt = mysqli_prepare($connection, $sql); //Pripravenie pripojenia
+        $stmt = $connection->prepare($sql); //Pripravenie pripojenia
         
         if ($stmt === false) { // Ak priprava false
             echo mysqli_error($connection); //Vypis chybu
         } else {
-            mysqli_stmt_bind_param($stmt, "i", $id); // Doplnenie "?" konkretnou hodnotou id
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT); // Priradí reálnu hodnotu $id ku parametru ":id" a definuje, že ide o celé číslo (PARAM_INT), ktoré používa PDO.
 
-            if(mysqli_stmt_execute($stmt)) { //Vykonaj to a ak je vsetko ok
-                $result = mysqli_stmt_get_result($stmt); //Vytiahni tie info do $result
-                return mysqli_fetch_array($result, MYSQLI_ASSOC); //Vrat to ako asociativne pole
+            if($stmt->execute()) { //Vykonaj statement, a ak je všetko OK
+                return $stmt->fetch(); // Vráti jeden riadok dát z výsledku dotazu
             }
         }
     }
@@ -50,27 +49,30 @@ class Student {
 
         //SQL príkaz na aktualizáciu údajov v databáze pre konkrétneho študenta
         $sql = "UPDATE student
-        SET first_name = ?,
-            second_name =?,
-            age = ?,
-            life = ?,
-            college = ?
-        WHERE id = ?";
+        SET first_name = :first_name,
+            second_name = :second_name,
+            age = :age,
+            life = :life,
+            college = :college
+        WHERE id = :id";
 
-        $statement = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
         //Tu sa vložia hodnoty do prípraveného príkazu namiesto "?"
-        if ($statement) {
-            mysqli_stmt_bind_param($statement, "ssissi",
-            $first_name,$second_name,$age,$life,$college,$id);
+        if (!$stmt) {
+            echo mysqli_error($connection);
+        } else {
+            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+            $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+            $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+            $stmt->bindValue(":college", $college, PDO::PARAM_STR);
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
             //Spustenie príkazu a bool true ak je spustený 
-            if(mysqli_stmt_execute($statement)) {
+            if($stmt->execute()) {
                 return true;
-            //Oznámenie o chybe
-            } else {
-                echo mysqli_error($connection);
-            };
+            }
         }
     }
 
@@ -87,16 +89,17 @@ class Student {
         
         $sql = "DELETE 
                 FROM student
-                WHERE id = ?";
+                WHERE id = :id";
 
-        $stmt = mysqli_prepare($connection,$sql);
+        $stmt = $connection->prepare($sql);
 
         if($stmt) {
-            mysqli_stmt_bind_param($stmt, "i", $id);
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
-            if(mysqli_stmt_execute($stmt)) {
+            if($stmt->execute()) {
                 return true;
             }
+
         } else {
             echo mysqli_error($connection);
         }
@@ -112,16 +115,12 @@ class Student {
     public static function getAllStudents($connection, $columns = "*") {
 
         $sql = "SELECT $columns
-
                 FROM student";
 
-        $result = mysqli_query($connection,$sql);
+        $stmt = $connection->prepare($sql);
 
-        if($result === false) {
-            echo mysqli_error($connection);
-        } else {
-            $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            return $students;
+        if($stmt->execute()){
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
@@ -140,24 +139,23 @@ class Student {
 
      public static function createStudent ($connection, $first_name, $second_name, $age, $life, $college ) {
         $sql = "INSERT INTO student (first_name, second_name, age, life, college)
-        VALUES (?, ?, ?, ?, ? )";
+        VALUES (:first_name, :second_name, :age, :life, :college )";
 
-        
+        $stmt = $connection->prepare($sql);
 
-        $statement = mysqli_prepare($connection,$sql);
-
-        if($statement === false) {
+        if($stmt === false) {
             echo mysqli_error($connection);
         } else {
-            mysqli_stmt_bind_param($statement, "ssiss", $first_name,
-            $second_name, $age, $life, $college);
+            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+            $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+            $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+            $stmt->bindValue(":college", $college, PDO::PARAM_STR);
         }
 
-        if(mysqli_stmt_execute($statement)) {
-            $id = mysqli_insert_id($connection);
+        if($stmt->execute()) {
+            $id = $connection->lastInsertId(); // Vrátenie ID posledného pridaného žiaka do DB
             return $id;
-        } else {
-            echo mysqli_stmt_error($statement);
-        }
+        } 
     }
 }
