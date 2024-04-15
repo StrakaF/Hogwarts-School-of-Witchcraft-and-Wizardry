@@ -17,20 +17,21 @@ class User {
     public static function createUser ($connection, $first_name, $second_name, $email, $password ) {
         
         $sql = "INSERT INTO user (first_name, second_name, email, password )
-        VALUES (?, ?, ?, ? )";
+        VALUES (:first_name, second_name, email, password )";
 
-        $statement = mysqli_prepare($connection,$sql);
+        $stmt = $connection->prepare($sql);
 
-        if($statement === false) {
+        if($stmt === false) {
             echo mysqli_error($connection);
         } else {
-            mysqli_stmt_bind_param($statement, "ssss", $first_name,
-            $second_name, $email, $password);
+            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+            $stmt->bindValue(":email", $email, PDO::PARAM_STR);
+            $stmt->bindValue(":password", $password, PDO::PARAM_STR);
 
-            mysqli_stmt_execute($statement);
+            $stmt->execute();
 
-            $id = mysqli_insert_id($connection);
-
+            $id = $connection->lastInsertId();
             return $id;
         }
     }  
@@ -48,29 +49,17 @@ class User {
     public static function authentication($connection, $log_email, $log_password) {
         $sql = "SELECT password
                 FROM user
-                WHERE email = ?";
+                WHERE email = :email";
 
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
         if($stmt) {
-            mysqli_stmt_bind_param($stmt, "s", $log_email);
+            $stmt->bindValue(":email", $log_email, PDO::PARAM_STR);
 
-            // Postup vyťahovania hesla
-            if(mysqli_stmt_execute($stmt)) {
-                $result = mysqli_stmt_get_result($stmt); // Zo stmt vyberieme výsledok a ukladáme do result
-                
-                // Vyťahujeme z objektu result, num_rows
-                if($result->num_rows !=0) {
-                    $password_database = mysqli_fetch_row($result); // Tu je v premennej pole
-                    $user_password_database = $password_database[0]; // Tu z neho vyberáme nultý prvok
+            $stmt->execute();
 
-                    // Ak tu niečo je, tak je to true
-                    if($user_password_database) {
-                        return password_verify($log_password, $user_password_database); // Porovnáva zadané a reálne heslo užívateľa
-                    }
-                } else {
-                    echo "Chyba pri zadávaní emailu.";
-                }
+            if($user = $stmt->fetch()){
+                return password_verify($log_password, $user->password);
             }
 
         } else { 
@@ -90,17 +79,16 @@ class User {
      public static function getUserId($connection, $email) {
         $sql = "SELECT id 
                 FROM user
-                WHERE email = ?";
+                WHERE email = :email";
 
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "s", $email);
+            $stmt->bindValue(":email", $email, PDO::PARAM_STR);
 
-            if(mysqli_stmt_execute($stmt)) {
-                $result = mysqli_stmt_get_result($stmt);
-                $id_database = mysqli_fetch_row($result); // Array
-                $user_id = $id_database[0];
+            if($stmt->execute()) {
+                $result = $stmt->fetch();
+                $user_id = $result[0];
 
                 return $user_id;
             }
