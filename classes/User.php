@@ -93,17 +93,19 @@ class User {
 
         $stmt = $connection->prepare($sql);
 
-        if ($stmt) {
-            $stmt->bindValue(":email", $email, PDO::PARAM_STR);
+        $stmt->bindValue(":email", $email, PDO::PARAM_STR);
 
+        try{
             if($stmt->execute()) {
                 $result = $stmt->fetch();
                 $user_id = $result[0];
-
                 return $user_id;
+            } else {
+                throw new Exception("Získanie ID konkrétneho usera nebolo úspešné.");
             }
-        } else {
-            echo mysqli_error($connection);
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií getUserId\n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
     }
 }
