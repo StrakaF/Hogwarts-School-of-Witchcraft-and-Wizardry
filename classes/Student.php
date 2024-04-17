@@ -20,14 +20,17 @@ class Student {
 
         $stmt = $connection->prepare($sql); //Pripravenie pripojenia
         
-        if ($stmt === false) { // Ak priprava false
-            echo mysqli_error($connection); //Vypis chybu
-        } else {
-            $stmt->bindValue(":id", $id, PDO::PARAM_INT); // Priradí reálnu hodnotu $id ku parametru ":id" a definuje, že ide o celé číslo (PARAM_INT), ktoré používa PDO.
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT); // Priradí reálnu hodnotu $id ku parametru ":id" a definuje, že ide o celé číslo (PARAM_INT), ktoré používa PDO.
 
-            if($stmt->execute()) { //Vykonaj statement, a ak je všetko OK
+        try {
+            if ($stmt->execute()) { //Vykonaj statement, a ak je všetko OK
                 return $stmt->fetch(); // Vráti jeden riadok dát z výsledku dotazu
+            } else {
+                throw new Exception("Získanie dát o jednom študentovi nebolo úspešné.");
             }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií getStudent, získanie dát zlyhalo.", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
     }
 
