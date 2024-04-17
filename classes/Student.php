@@ -29,7 +29,7 @@ class Student {
                 throw new Exception("Získanie dát o jednom študentovi nebolo úspešné.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií getStudent, získanie dát zlyhalo.\n", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií getStudent\n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
     }
@@ -77,7 +77,7 @@ class Student {
                 throw new Exception("Update študenta nebol vykonaný.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií updateStudent\n, update nebol vykonaný.", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií updateStudent\n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
     }
@@ -108,7 +108,7 @@ class Student {
                 throw new Exception("Žiaka sa nepodarilo vymazať.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií deleteStudent, žiaka sa nepodarilo vymazať\n", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií deleteStudent\n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
      }     
@@ -134,7 +134,7 @@ class Student {
                 throw new Exception("Žiakov sa nepodarilo nájsť.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií getAllStudents, žiakov sa nepodarilo nájsť\n", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií getAllStudents\n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
     }
@@ -158,19 +158,22 @@ class Student {
 
         $stmt = $connection->prepare($sql);
 
-        if($stmt === false) {
-            echo mysqli_error($connection);
-        } else {
-            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
-            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
-            $stmt->bindValue(":age", $age, PDO::PARAM_INT);
-            $stmt->bindValue(":life", $life, PDO::PARAM_STR);
-            $stmt->bindValue(":college", $college, PDO::PARAM_STR);
+        $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+        $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+        $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+        $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+        $stmt->bindValue(":college", $college, PDO::PARAM_STR);
+        
+        try{
+            if($stmt->execute()) {
+                $id = $connection->lastInsertId(); // Vrátenie ID posledného pridaného žiaka do DB
+                return $id;
+            } else {
+                throw new Exception("Žiaka sa nepodarilo vytvoriť.");
+            }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií createStudent\n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
-
-        if($stmt->execute()) {
-            $id = $connection->lastInsertId(); // Vrátenie ID posledného pridaného žiaka do DB
-            return $id;
-        } 
     }
 }
