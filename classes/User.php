@@ -60,19 +60,21 @@ class User {
 
         $stmt = $connection->prepare($sql);
 
-        if($stmt) {
-            $stmt->bindValue(":email", $log_email, PDO::PARAM_STR);
+        $stmt->bindValue(":email", $log_email, PDO::PARAM_STR);
 
-            $stmt->execute();
-
-            if($user = $stmt->fetch()){
-                // var_dump($user);
-                return password_verify($log_password, $user['password']);
+        try {
+            if($stmt->execute()) {
+                if($user = $stmt->fetch()){
+                    return password_verify($log_password, $user['password']);
+                }
+            } else {
+                throw new Exception("Autentikácia usera nebolo úspešné.");
             }
-
-        } else { 
-            echo mysqli_error($connection);
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií authentication\n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
+        
     }
 
     /**
