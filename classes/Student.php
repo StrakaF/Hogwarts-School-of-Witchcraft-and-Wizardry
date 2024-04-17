@@ -62,21 +62,26 @@ class Student {
         $stmt = $connection->prepare($sql);
 
         //Tu sa vložia hodnoty do prípraveného príkazu namiesto "?"
-        if (!$stmt) {
-            echo mysqli_error($connection);
-        } else {
-            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
-            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
-            $stmt->bindValue(":age", $age, PDO::PARAM_INT);
-            $stmt->bindValue(":life", $life, PDO::PARAM_STR);
-            $stmt->bindValue(":college", $college, PDO::PARAM_STR);
-            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+        $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+        $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+        $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+        $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+        $stmt->bindValue(":college", $college, PDO::PARAM_STR);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
-            //Spustenie príkazu a bool true ak je spustený 
+        //Spustenie príkazu a bool true ak je spustený 
+        try {
             if($stmt->execute()) {
                 return true;
+            } else {
+                throw new Exception("Update študenta nebol vykonaný.");
             }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií updateStudent, update nebol vykonaný.", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
+        
+ 
     }
 
     /**
