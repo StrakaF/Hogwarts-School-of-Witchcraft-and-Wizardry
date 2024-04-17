@@ -29,7 +29,7 @@ class Student {
                 throw new Exception("Získanie dát o jednom študentovi nebolo úspešné.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií getStudent, získanie dát zlyhalo.", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií getStudent, získanie dát zlyhalo.\n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
     }
@@ -77,11 +77,9 @@ class Student {
                 throw new Exception("Update študenta nebol vykonaný.");
             }
         } catch (Exception $e) {
-            error_log("Chyba pri funkcií updateStudent, update nebol vykonaný.", 3, "../errors/error.log");
+            error_log("Chyba pri funkcií updateStudent\n, update nebol vykonaný.", 3, "../errors/error.log");
             echo $e->getMessage();
         }
-        
- 
     }
 
     /**
@@ -101,17 +99,21 @@ class Student {
 
         $stmt = $connection->prepare($sql);
 
-        if($stmt) {
-            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
-
-            if($stmt->execute()) {
-                return true;
+        try {
+            if($stmt) {
+                $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+    
+                if($stmt->execute()) {
+                    return true;
+                }
+            } else {
+                throw new Exception("Žiaka sa nepodarilo vymazať.");
             }
-
-        } else {
-            echo mysqli_error($connection);
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií deleteStudent, žiaka sa nepodarilo vymazať\n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
-    }
+     }     
 
     /**
      * Vráti všetkých žiakov z DB
