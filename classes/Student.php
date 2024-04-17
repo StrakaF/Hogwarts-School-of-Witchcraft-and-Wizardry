@@ -99,13 +99,11 @@ class Student {
 
         $stmt = $connection->prepare($sql);
 
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+
         try {
-            if($stmt) {
-                $stmt->bindValue(":id", $id, PDO::PARAM_INT);
-    
-                if($stmt->execute()) {
-                    return true;
-                }
+            if($stmt->execute()) {
+                return true;
             } else {
                 throw new Exception("Žiaka sa nepodarilo vymazať.");
             }
@@ -129,8 +127,15 @@ class Student {
 
         $stmt = $connection->prepare($sql);
 
-        if($stmt->execute()){
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try{
+            if($stmt->execute()){
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                throw new Exception("Žiakov sa nepodarilo nájsť.");
+            }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií getAllStudents, žiakov sa nepodarilo nájsť\n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
     }
 
