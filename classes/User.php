@@ -21,19 +21,26 @@ class User {
 
         $stmt = $connection->prepare($sql);
 
-        if($stmt === false) {
-            echo mysqli_error($connection);
-        } else {
-            $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
-            $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
-            $stmt->bindValue(":email", $email, PDO::PARAM_STR);
-            $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+        $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+        $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+        $stmt->bindValue(":email", $email, PDO::PARAM_STR);
+        $stmt->bindValue(":password", $password, PDO::PARAM_STR);
 
-            $stmt->execute();
-
-            $id = $connection->lastInsertId();
-            return $id;
+        try {
+            if($stmt->execute()) {
+                $id = $connection->lastInsertId();
+                return $id;
+            } else {
+                throw new Exception("Vytvorenie usera v databáze nebolo úspešné.");
+            }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií createUser \n", 3, "../errors/error.log");
+            echo $e->getMessage();
         }
+        
+
+        
+        
     }  
 
     /**
