@@ -29,7 +29,11 @@ $user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po r
     <title>Document</title>
 </head>
 <body>
-    
+    <?php require "../assets/admin-header.php" ?>
+
+
+    <?php require "../assets/footer.php" ?>
+    <script src="../js/header.js"></script>
 </body>
 </html>
 
