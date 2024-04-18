@@ -8,7 +8,6 @@ session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // $connection = connectionDB();
     $database = new Database();
     $connection = $database->connectionDB();
 

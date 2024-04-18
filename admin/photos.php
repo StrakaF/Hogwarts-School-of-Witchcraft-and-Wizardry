@@ -6,7 +6,10 @@ session_start();
 
 // Overenie či je užívateľ prihlásený 
 if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme na true
-    die("Nepovolený prístup"); // a vykoná sa die
+    die("Nepovolený prístup"); // a vykoná sa die, inak sa pokračuje v programe
 }
 
-$user_id = 
+$user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po registrácií
+
+?>
+
