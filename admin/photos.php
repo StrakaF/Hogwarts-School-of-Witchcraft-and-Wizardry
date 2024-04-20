@@ -31,6 +31,15 @@ $user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po r
 <body>
     <?php require "../assets/admin-header.php" ?>
 
+    <main>
+        <section class="upload-photos">
+            <h1>Fotky</h1>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" require>
+                <input type="submit" value="Nahrať obrázok" name="submit">
+            </form>
+        </section>
+    </main>
 
     <?php require "../assets/footer.php" ?>
     <script src="../js/header.js"></script>
