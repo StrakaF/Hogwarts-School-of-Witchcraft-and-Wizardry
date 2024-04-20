@@ -13,10 +13,15 @@ if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme 
 
 $user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po registrácií
 
-if(isset($_POST["submit"]) and isset($_POST["image"])) {
-    
+if(isset($_POST["submit"]) and isset($_FILES["image"])) {
+
     $db = new Database();
     $connection = $db->connectionDB();
+
+    $image_name = $_FILES["image"]["name"];
+    $image_size = $_FILES["image"]["size"];
+    $image_tmp_name = $_FILES["image"]["tmp_name"];
+    $error = $_FILES["image"]["error"];
 }
 
 ?>
