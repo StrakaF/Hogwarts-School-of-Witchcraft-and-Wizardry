@@ -30,6 +30,8 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
         } else {
             $image_extension = pathinfo($image_name, PATHINFO_EXTENSION);
             $image_extension_lower_case = strtolower($image_extension);
+
+            $allowed_extensions = ["jpg", "jpeg", "png"];
         }
             
     } else {
