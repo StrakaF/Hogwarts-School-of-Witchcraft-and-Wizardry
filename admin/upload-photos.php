@@ -29,6 +29,7 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
             echo $error_message;
         } else {
             $image_extension = pathinfo($image_name, PATHINFO_EXTENSION);
+            $image_extension_lower_case = strtolower($image_extension);
         }
             
     } else {
