@@ -24,8 +24,13 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
     $error = $_FILES["image"]["error"];
 
     if($error === 0) {
-        if($image_size > 9000000 ) //9mb
+        if($image_size > 9000000 )//9mb {
             $error_message = "Váš súbor je príliš veľký";
+            echo $error_message;
+        } else {
+            $image_extension = pathinfo($image_name, PATHINFO_EXTENSION);
+        }
+            
     } else {
         Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
     }
