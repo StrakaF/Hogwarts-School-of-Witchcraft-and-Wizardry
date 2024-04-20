@@ -32,6 +32,12 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
             $image_extension_lower_case = strtolower($image_extension);
 
             $allowed_extensions = ["jpg", "jpeg", "png"];
+
+            if(in_array($image_extension_lower_case, $allowed_extensions)) {
+
+            } else {
+                Url::redirectUrl("/Bradavice-projekt/admin/photos.php")
+            }
         }
             
     } else {
