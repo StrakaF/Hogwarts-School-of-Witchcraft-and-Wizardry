@@ -13,10 +13,12 @@ if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme 
 
 $user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po registrácií
 
-if(isset($_POST["submit"]) and isset($_FILES["image"])) { // Overujeme či prišli nejaké dáta skrz formulár
+if(isset($_POST["submit"]) && isset($_FILES["image"])) { // Overujeme či prišli nejaké dáta skrz formulár
 
     $db = new Database();
     $connection = $db->connectionDB();
+
+    var_dump($_FILES["image"]);
 
     $image_name = $_FILES["image"]["name"];
     $image_size = $_FILES["image"]["size"];
@@ -24,7 +26,7 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) { // Overujeme či priš
     $error = $_FILES["image"]["error"];
 
     if($error === 0) {
-        if($image_size > 9000000 )//9mb {
+        if($image_size > 9000000 ){//9mb {
             $error_message = "Váš súbor je príliš veľký";
             echo $error_message;
         } else {
@@ -42,13 +44,12 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) { // Overujeme či priš
                 }
                 
             } else {
-                Url::redirectUrl("/Bradavice-projekt/admin/photos.php")
+                Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
             }
         }
             
     } else {
         Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
     }
-
-
+}
 ?>
