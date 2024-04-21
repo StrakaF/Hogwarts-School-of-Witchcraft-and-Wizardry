@@ -36,6 +36,11 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) { // Overujeme či priš
             if(in_array($image_extension_lower_case, $allowed_extensions)) {
                 // Zostavenie unikátneho názvu obrázku
                 $new_image_name = uniqid("IMG-", true) . "." . $image_extension;
+
+                if(!file_exists("../uploads/" . $user_id)){ // Ak zložka existuje, nevytvárame ju zas
+                    mkdir("../uploads/" . $user_id, 0777, true); // Vytvorenie zložky podľa user ID
+                }
+                
             } else {
                 Url::redirectUrl("/Bradavice-projekt/admin/photos.php")
             }
