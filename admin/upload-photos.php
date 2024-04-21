@@ -13,7 +13,7 @@ if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme 
 
 $user_id = $_SESSION["logged_in_user_id"]; // Uloźenie ID usera zo session po registrácií
 
-if(isset($_POST["submit"]) and isset($_FILES["image"])) {
+if(isset($_POST["submit"]) and isset($_FILES["image"])) { // Overujeme či prišli nejaké dáta skrz formulár
 
     $db = new Database();
     $connection = $db->connectionDB();
@@ -34,7 +34,8 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
             $allowed_extensions = ["jpg", "jpeg", "png"];
 
             if(in_array($image_extension_lower_case, $allowed_extensions)) {
-
+                // Zostavenie unikátneho názvu obrázku
+                $new_image_name = uniqid("IMG-", true) . "." . $image_extension;
             } else {
                 Url::redirectUrl("/Bradavice-projekt/admin/photos.php")
             }
@@ -43,6 +44,6 @@ if(isset($_POST["submit"]) and isset($_FILES["image"])) {
     } else {
         Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
     }
-}
+
 
 ?>
