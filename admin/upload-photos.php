@@ -3,6 +3,7 @@
 require "../classes/Database.php";
 require "../classes/Auth.php";
 require "../classes/Url.php";
+require "../classes/Image.php";
 
 session_start();
 
@@ -45,6 +46,11 @@ if(isset($_POST["submit"]) && isset($_FILES["image"])) { // Overujeme či prišl
 
                 $image_upload_path = "../uploads/" . $user_id . "/" . $new_image_name;
                 move_uploaded_file($image_tmp_name, $image_upload_path);
+
+                // Vloženie obrázku do databázy
+                if(Image::insertImage($connection, $user_id, $new_image_name)) {
+                    Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
+                }
                 
             } else {
                 Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
