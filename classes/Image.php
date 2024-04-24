@@ -28,4 +28,10 @@ class Image {
             return true;
         }
     }
+
+    public static function getImagesByUserId(){
+        $sql = "SELECT image_name
+                FROM image
+                WHERE user_id = :user_id";
+    }
 }
