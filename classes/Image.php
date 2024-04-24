@@ -29,9 +29,21 @@ class Image {
         }
     }
 
-    public static function getImagesByUserId(){
+    public static function getImagesByUserId($conn, $user_id){
         $sql = "SELECT image_name
                 FROM image
                 WHERE user_id = :user_id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $images;
+
+
     }
 }
