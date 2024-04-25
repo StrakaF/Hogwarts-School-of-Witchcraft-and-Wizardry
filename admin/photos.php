@@ -11,7 +11,13 @@ if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme 
     die("Nepovolený prístup"); // a vykoná sa die, inak sa pokračuje v programe
 }
 
-$all_images = Image::getImagesByUserId($connected, $user_id)
+$db = new Database();
+$connection = $db->connectionDB();
+
+$user_id = $_SESSION["logged_in_user_id"];
+
+$allImages = Image::getImagesByUserId($connection, $user_id);
+
 
 ?>
 
