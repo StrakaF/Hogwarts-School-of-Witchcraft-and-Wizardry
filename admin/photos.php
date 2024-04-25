@@ -1,6 +1,8 @@
 <?php
 
 require "../classes/Auth.php";
+require "../classes/Database.php";
+require "../classes/Image.php";
 
 session_start();
 
@@ -8,6 +10,8 @@ session_start();
 if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme na true
     die("Nepovolený prístup"); // a vykoná sa die, inak sa pokračuje v programe
 }
+
+$all_images = Image::getImagesByUserId($connected, $user_id)
 
 ?>
 
