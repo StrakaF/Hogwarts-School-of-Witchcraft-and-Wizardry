@@ -48,10 +48,17 @@ class Image {
     public static function deletePhotoFromDirectory() {
         try {
             // Kontrola existencie súboru
-            if(file_exist())
-
-        } catch() {
-
+            if(!file_exist($path)){
+                throw new Exception("Súbor sa nepodarilo zmazať nakoľko neexistuje.");
+            }
+            // Zmazanie súboru
+            if(unlink($path)){
+                return true;
+            } else {
+                throw new Exception("Pri mazaní súboru došlo k chybe.");
+            }
+        } catch(Exception $e) {
+            echo "Chyba: " . $e->getMessage();
         }
     }
 }
