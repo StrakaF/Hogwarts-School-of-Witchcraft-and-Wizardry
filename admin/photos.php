@@ -47,6 +47,14 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
                 <input type="submit" value="Nahrať obrázok" name="submit">
             </form>
         </section>
+
+        <section class="images">
+            <article>
+                <?php foreach($allImages as $one_image): ?>
+                    
+                <?php endforeach; ?>
+            </article>
+        </section>
     </main>
 
     <?php require "../assets/footer.php" ?>
