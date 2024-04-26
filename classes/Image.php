@@ -43,7 +43,15 @@ class Image {
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $images;
+    }
 
+    public static function deletePhotoFromDirectory() {
+        try {
+            // Kontrola existencie súboru
+            if(file_exist())
 
+        } catch() {
+
+        }
     }
 }
