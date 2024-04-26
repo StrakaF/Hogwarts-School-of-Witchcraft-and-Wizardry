@@ -55,7 +55,9 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
                         <div>
                             <img src=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> alt="image">
                         </div>
-                        <div></div>
+                        <div>
+                            <a href=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> download>Stiahnuť obrázok</a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </article>
