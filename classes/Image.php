@@ -45,7 +45,7 @@ class Image {
         return $images;
     }
 
-    public static function deletePhotoFromDirectory() {
+    public static function deletePhotoFromDirectory($path) {
         try {
             // Kontrola existencie súboru
             if(!file_exist($path)){
