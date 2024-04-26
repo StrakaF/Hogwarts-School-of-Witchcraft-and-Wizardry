@@ -51,7 +51,12 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
         <section class="images">
             <article>
                 <?php foreach($allImages as $one_image): ?>
-                    
+                    <div>
+                        <div>
+                            <img src=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> alt="image">
+                        </div>
+                        <div></div>
+                    </div>
                 <?php endforeach; ?>
             </article>
         </section>
