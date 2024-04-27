@@ -12,6 +12,9 @@ if( !Auth::isLoggedIn() ){  // Ak skončí false (nieje prihlásený), prepneme 
     die("Nepovolený prístup"); // a vykoná sa die, inak sa pokračuje v programe
 }
 
+$db = new Database();
+$connection = $db->connectionDB();
 
-
+$user_id = $_GET["id"];
+$image_name = $_GET["image_name"];
 ?>
