@@ -48,7 +48,7 @@ class Image {
     public static function deletePhotoFromDirectory($path) {
         try {
             // Kontrola existencie súboru
-            if(!file_exist($path)){
+            if(!file_exists($path)){
                 throw new Exception("Súbor sa nepodarilo zmazať nakoľko neexistuje.");
             }
             // Zmazanie súboru
