@@ -17,4 +17,8 @@ $connection = $db->connectionDB();
 
 $user_id = $_GET["id"];
 $image_name = $_GET["image_name"];
+
+echo $user_id;
+echo "<br>";
+echo $image_name;
 ?>
