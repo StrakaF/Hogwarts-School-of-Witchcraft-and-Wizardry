@@ -61,4 +61,21 @@ class Image {
             echo "Chyba: " . $e->getMessage();
         }
     }
+
+    public static function deletePhotoFromDatabase($conn, $image_name){
+        $sql ="DELETE FROM image
+               WHERE image_name = :image_name";
+        
+        $stmt = $conn->prepare($sql);
+
+        try {
+            $stmt->bindValue(":image_name", $image_name, PDO::PARAM_STR);
+
+            if(!$stmt->execute()) {
+                throw new Exception("Obrázok sa nepodarilo zmazať z databázy.");
+            }
+        } catch( Exception $e ) {
+            echo $e->getMessage();
+        }
+    }
 }

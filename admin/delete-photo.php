@@ -22,5 +22,6 @@ $image_path = "../uploads/" . $user_id . "/" . $image_name;
 
 if(Image::deletePhotoFromDirectory($image_path)) {
     // Zmazať obrázok aj z databázy
+    Image::deletePhotoFromDatabase($connection, $image_name);
 }
 ?>
