@@ -48,7 +48,7 @@
 
         //Funkcia ktorá updatuje info o žiakovi v DB
         if(Student::updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id )) {
-            Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+            Url::redirectUrl("/Bradavice-projekt/admin/one-student.php?id=$id");
         }
 
     }

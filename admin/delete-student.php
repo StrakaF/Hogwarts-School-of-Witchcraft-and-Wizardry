@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         <section class="delete-form">
             <form method="POST">
                 <button>Potvrdiť zmazanie</button>
-                <a href="jeden-ziak.php?id=<?=$_GET['id']?>">Zrušiť</a>
+                <a href="one-student.php?id=<?=$_GET['id']?>">Zrušiť</a>
             </form>
         </section>
     </main>

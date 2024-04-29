@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $id = Student::createStudent($connection, $first_name, $second_name, $age, $life, $college);
 
     if($id){
-        Url::redirectUrl("/Bradavice-projekt/admin/jeden-ziak.php?id=$id");
+        Url::redirectUrl("/Bradavice-projekt/admin/one-student.php?id=$id");
     } else {
         echo "Žiak nebol vytvorený.";
     }

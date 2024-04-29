@@ -51,7 +51,7 @@ $students = Student::getAllStudents($connection,"id, first_name, second_name");
                         <li>
                             <?php echo htmlspecialchars($one_student["first_name"]). " " .htmlspecialchars($one_student["second_name"]); ?>
                         </li>
-                        <a href="jeden-ziak.php?id=<?= $one_student['id'] ?>">Viac informácií</a>
+                        <a href="one-student.php?id=<?= $one_student['id'] ?>">Viac informácií</a>
                     <?php endforeach; ?>
                 </ul>
             <?php endif; ?>
