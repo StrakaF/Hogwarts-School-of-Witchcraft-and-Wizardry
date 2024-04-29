@@ -72,7 +72,7 @@
 <body>
     <?php require "../assets/admin-header.php" ?>
 
-    <?php require "../assets/formular-ziak.php"; ?>
+    <?php require "../assets/student-form.php"; ?>
 
     <?php require "../assets/footer.php"; ?>
 

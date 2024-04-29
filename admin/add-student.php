@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
 <main>
     <section class="add-form">
-        <?php require "../assets/formular-ziak.php"; ?>
+        <?php require "../assets/student-form.php"; ?>
     </section>
 </main>
 
