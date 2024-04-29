@@ -17,7 +17,7 @@ $connection = $database->connectionDB();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(Student::deleteStudent($connection, $_GET["id"])) {
-        Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+        Url::redirectUrl("/Bradavice-projekt/admin/students.php");
     }
 }
 

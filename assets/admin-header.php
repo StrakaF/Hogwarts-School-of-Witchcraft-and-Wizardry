@@ -7,7 +7,7 @@
 
     <nav>
         <ul>
-            <li><a href="ziaci.php">Zoznam žiakov</a></li>
+            <li><a href="students.php">Zoznam žiakov</a></li>
             <li><a href="add-student.php">Pridať žiaka</a></li>
             <li><a href="log-out.php">Odhlásiť sa</a></li>
             <li><a href="photos.php">Fotky</a></li>

@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         //Nastavenie ID užívateľa
         $_SESSION["logged_in_user_id"] = $id;
 
-        Url::redirectUrl("/Bradavice-projekt/admin/ziaci.php");
+        Url::redirectUrl("/Bradavice-projekt/admin/students.php");
 
     } else {
         echo "Užívateľa sa nepodarilo pridať.";
