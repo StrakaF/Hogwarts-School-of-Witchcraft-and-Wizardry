@@ -59,7 +59,7 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
 
         <section class="buttons">
                 <a href="editacia-ziaka.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
-                <a href="delete-ziak.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>               
+                <a href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>               
         </section>
     </main>
 
