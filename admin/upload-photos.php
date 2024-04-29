@@ -57,7 +57,7 @@ if(isset($_POST["submit"]) && isset($_FILES["image"])) { // Overujeme či prišl
         }
             
     } else {
-        Url::redirectUrl("/Bradavice-projekt/admin/photos.php");
+        Url::redirectUrl("/Bradavice-projekt/errors/error-page.php?error_text=Vložit obrázok sa bohužiaľ nepodarilo.");
     }
 }
 ?>
