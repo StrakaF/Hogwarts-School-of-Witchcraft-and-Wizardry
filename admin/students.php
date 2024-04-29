@@ -27,6 +27,7 @@ $students = Student::getAllStudents($connection,"id, first_name, second_name");
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-students.css">
     <!-- Query links -->
     <link rel="stylesheet" href="../query/header-query.css">
     <!-- Fontawesome icons -->
