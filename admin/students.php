@@ -46,15 +46,17 @@ $students = Student::getAllStudents($connection,"id, first_name, second_name");
         <section class="students-list">
             <?php if(empty($students)): ?>
                 <p>Žiaci sa nenašli.</p>
-            <?php else: ?>    
-                <ul>
+            <?php else: ?>  
+                <div class="all-students">
                     <?php foreach($students as $one_student): ?>
-                        <li>
-                            <?php echo htmlspecialchars($one_student["first_name"]). " " .htmlspecialchars($one_student["second_name"]); ?>
-                        </li>
-                        <a href="one-student.php?id=<?= $one_student['id'] ?>">Viac informácií</a>
+                        <div class="one-student">
+                            <h2>
+                                <?php echo htmlspecialchars($one_student["first_name"]). " " .htmlspecialchars($one_student["second_name"]); ?>
+                            </h2>
+                            <a href="one-student.php?id=<?= $one_student['id'] ?>">Viac informácií</a>
+                        </div>
                     <?php endforeach; ?>
-                </ul>
+                </div>  
             <?php endif; ?>
         </section>
     </main>
