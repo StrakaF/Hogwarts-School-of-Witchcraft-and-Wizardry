@@ -13,7 +13,8 @@ main {
     font-size: 1.875rem;
     padding-bottom: 1.875rem;
     padding-top: 1.875rem;
-    color: #fff;
+    color: #F0EBE3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .all-students {
@@ -21,6 +22,8 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.25rem;
+
+    padding-bottom: 1.875rem;
 }
 
 .one-student {
@@ -34,10 +37,32 @@ main {
     text-align: center;
 
     background-color: rgba(250,235,215,0.5);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
     transition: 0.3s;
 }
 
 .one-student:hover {
     transform: scale(1.05);
+}
+
+.one-student a {
+    text-decoration: none;
+    font-size: 20px;
+
+    padding: 5px 20px;
+    margin-top: 8px;
+
+    color: #cda128;
+    background-color: #fff;
+    border: 2px solid #cda128;
+
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.one-student a:hover {
+    background-color: #cda128;
+    color: #fff;
 }
