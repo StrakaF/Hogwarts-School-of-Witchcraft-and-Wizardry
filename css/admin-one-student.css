@@ -26,3 +26,35 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+.one-student a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    display: inline-block;
+    margin-top: .625rem;
+    transition: all 0.3s ease;
+}
+
+.edit-one-student {
+    background-color: #cda128;
+    border-radius: 5px;
+}
+
+.edit-one-student:hover {
+    color: #cda128;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.delete-one-student {
+    background-color: red;
+    border-radius: 5px;
+}
+
+.delete-one-student:hover {
+    color: red;
+    background-color: #fff;
+    border-radius: 5px;
+}

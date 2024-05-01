@@ -58,8 +58,8 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
                     <p>Koľaj: <?= htmlspecialchars($students["college"]); ?></p>
                 </div>
                 <div class="one-student-buttons">
-                    <a href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
-                    <a href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>
+                    <a class="edit-one-student" href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
+                    <a class="delete-one-student" href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>
                 </div> 
             <?php endif; ?>
         </section>
