@@ -1,8 +1,14 @@
 main {
-    min-height: 100vh;
     background: url(../img/hogwarts-admin-background-2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+.one-student {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
