@@ -9,6 +9,20 @@ main {
 .one-student {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-student-box {
+    width: 18.75rem;
+    min-height: 8.125rem;
+    background-color: rgba(250,235,215,0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

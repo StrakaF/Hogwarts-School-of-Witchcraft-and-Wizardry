@@ -56,13 +56,12 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
                     <p>Vek: <?= htmlspecialchars($students["age"]); ?></p>
                     <p>Informácie: <?= htmlspecialchars($students["life"]); ?></p>
                     <p>Koľaj: <?= htmlspecialchars($students["college"]); ?></p>
+                </div>
+                <div class="one-student-buttons">
+                    <a href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
+                    <a href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>
                 </div> 
             <?php endif; ?>
-        </section>
-
-        <section class="buttons">
-                <a href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
-                <a href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>               
         </section>
     </main>
 
