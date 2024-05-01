@@ -43,18 +43,20 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
     <?php require "../assets/admin-header.php" ?>
     
     <main>
-        <section class="main-heading">
+        <!-- <section class="main-heading">
             <h1>Informácie o žiakovi</h1>
-        </section>
+        </section> -->
 
-        <section>
+        <section class="one-student">
             <?php if($students === null): ?>
                 <p>Žiak nebol nájdený.</p>
             <?php else: ?>
-                <h2> <?= htmlspecialchars($students["first_name"]). " ".htmlspecialchars($students["second_name"]); ?></h2>
-                <p>Vek: <?= htmlspecialchars($students["age"]); ?></p>
-                <p>Informácie: <?= htmlspecialchars($students["life"]); ?></p>
-                <p>Koľaj: <?= htmlspecialchars($students["college"]); ?></p>
+                <div class="one-student-box">
+                    <h2> <?= htmlspecialchars($students["first_name"]). " ".htmlspecialchars($students["second_name"]); ?></h2>
+                    <p>Vek: <?= htmlspecialchars($students["age"]); ?></p>
+                    <p>Informácie: <?= htmlspecialchars($students["life"]); ?></p>
+                    <p>Koľaj: <?= htmlspecialchars($students["college"]); ?></p>
+                </div> 
             <?php endif; ?>
         </section>
 
