@@ -66,7 +66,7 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
         </section>
     </main>
 
-    <br>
+   
 
 
     <?php require "../assets/footer.php" ?>
