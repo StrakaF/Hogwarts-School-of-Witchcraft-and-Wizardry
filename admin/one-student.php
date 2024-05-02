@@ -10,7 +10,8 @@ if( !Auth::isLoggedIn() ) {
     die("Nepovolený prístup");
 }
 
-// $connection = connectionDB();
+$role = $_SESSION["role"];
+
 $database = new Database();
 $connection = $database->connectionDB();
 
@@ -57,10 +58,14 @@ if( isset($_GET["id"]) and is_numeric($_GET["id"]) ) {
                     <p>Informácie: <?= htmlspecialchars($students["life"]); ?></p>
                     <p>Koľaj: <?= htmlspecialchars($students["college"]); ?></p>
                 </div>
-                <div class="one-student-buttons">
-                    <a class="edit-one-student" href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
-                    <a class="delete-one-student" href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>
-                </div> 
+
+                <?php if($role === "admin"): ?>
+                    <div class="one-student-buttons">
+                        <a class="edit-one-student" href="edit-student.php?id=<?= $students['id'] ?>">Editovať žiaka</a>               
+                        <a class="delete-one-student" href="delete-student.php?id=<?= $students['id'] ?>">Vymazať žiaka</a>
+                    </div> 
+                <?php endif; ?>
+                
             <?php endif; ?>
         </section>
     </main>
