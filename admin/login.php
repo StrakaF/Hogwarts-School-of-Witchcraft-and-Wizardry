@@ -9,9 +9,7 @@ session_start();
 // Kontrola, či bola požiadavka odoslaná metódou POST
 if($_SERVER["REQUEST_METHOD"] === "POST" ) {
     // Kód ktorý sa vykoná len v prípade, že bola odoslaná požiadavka POST
-
     // Pripojenie do DB
-    // $conn = connectionDB();
     $database = new Database();
     $connection = $database->connectionDB();
     // Vytiahnutie dát z signin formulára
@@ -30,6 +28,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ) {
         $_SESSION["is_logged_in"] = true;
         //Nastavenie ID užívateľa
         $_SESSION["logged_in_user_id"] = $id;
+        //Nastavenie role usera
+        $_SESSION["role"] = User::getUserRole($connection, $id);
 
         Url::redirectUrl("/Bradavice-projekt/admin/students.php");
 

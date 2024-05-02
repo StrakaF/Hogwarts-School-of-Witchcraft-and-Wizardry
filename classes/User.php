@@ -106,4 +106,27 @@ class User {
             echo $e->getMessage();
         }
     }
+
+    public static function getUserRole($connection, $id) {
+
+        $sql = "SELECT role 
+                FROM user
+                WHERE id = :id";
+
+        $stmt = $connection->prepare($sql);
+
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+
+        try{
+            if($stmt->execute()) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result["role"];
+            } else {
+                throw new Exception("Získanie role usera nebolo úspešné.");
+            }
+        } catch (Exception $e) {
+            error_log("Chyba pri funkcií getUserRole\n", 3, "../errors/error.log");
+            echo $e->getMessage();
+        }
+    }
 }
