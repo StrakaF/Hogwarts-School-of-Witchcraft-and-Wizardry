@@ -14,10 +14,10 @@ class User {
      * @return integer $id - id uživateľa
      */
 
-    public static function createUser ($connection, $first_name, $second_name, $email, $password ) {
+    public static function createUser ($connection, $first_name, $second_name, $email, $password, $role ) {
         
-        $sql = "INSERT INTO user (first_name, second_name, email, password )
-        VALUES (:first_name, :second_name, :email, :password )";
+        $sql = "INSERT INTO user (first_name, second_name, email, password, role )
+        VALUES (:first_name, :second_name, :email, :password, :role )";
 
         $stmt = $connection->prepare($sql);
 
@@ -25,6 +25,7 @@ class User {
         $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
         $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+        $stmt->bindValue(":role", $role, PDO::PARAM_STR);
 
         try {
             if($stmt->execute()) {
@@ -37,9 +38,6 @@ class User {
             error_log("Chyba pri funkcií createUser \n", 3, "../errors/error.log");
             echo $e->getMessage();
         }
-        
-
-        
         
     }  
 
