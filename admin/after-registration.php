@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $role = "user";  
 
-    $id = User::createUser($connection, $first_name, $second_name, $email, $password);
+    $id = User::createUser($connection, $first_name, $second_name, $email, $password, $role);
 
     if(!empty($id)) {
         /*Zabraňuje tzv. fixation attack, viac tu:
@@ -28,6 +28,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["is_logged_in"] = true;
         //Nastavenie ID užívateľa
         $_SESSION["logged_in_user_id"] = $id;
+        //Nastavenie role usera
+        $_SESSION["role"] = $role;
 
         Url::redirectUrl("/Bradavice-projekt/admin/students.php");
 
