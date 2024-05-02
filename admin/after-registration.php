@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $second_name = $_POST["second-name"];
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $role = "user";  
 
     $id = User::createUser($connection, $first_name, $second_name, $email, $password);
 
