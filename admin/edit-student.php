@@ -11,8 +11,8 @@
         die("Nepovolený prístup");
     }
 
-    //Pripojenie do DB
-    // $connection = connectionDB();
+    $role = $_SESSION["role"];
+
     $database = new Database();
     $connection = $database->connectionDB();
 
@@ -72,7 +72,15 @@
 <body>
     <?php require "../assets/admin-header.php" ?>
 
-    <?php require "../assets/student-form.php"; ?>
+    <?php 
+
+    if($role === "admin"){
+        require "../assets/student-form.php"; 
+    } else {
+        echo "<h1>Obsah tejto stránky je k dispozícií iba administrátorom.</h1>";
+    }
+    
+    ?>
 
     <?php require "../assets/footer.php"; ?>
 
