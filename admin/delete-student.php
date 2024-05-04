@@ -11,7 +11,8 @@ if( !Auth::isLoggedIn() ) {
     die("Nepovolený prístup");
 }
 
-// $connection = connectionDB();
+$role = $_SESSION["role"];
+
 $database = new Database();
 $connection = $database->connectionDB();
 
@@ -42,14 +43,20 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <?php require "../assets/admin-header.php" ?>
 
-    <h1>Potvrďte zmazanie žiaka</h1>
+    
     <main>
-        <section class="delete-form">
-            <form method="POST">
-                <button>Potvrdiť zmazanie</button>
-                <a href="one-student.php?id=<?=$_GET['id']?>">Zrušiť</a>
-            </form>
-        </section>
+        <?php if($role === "admin" ): ?>
+            <section class="delete-form">
+                <form method="POST">
+                    <button>Potvrdiť zmazanie</button>
+                    <a href="one-student.php?id=<?=$_GET['id']?>">Zrušiť</a>
+                </form>
+            </section>
+        <?php else: ?>
+            <section>
+                <h1>Obsah tejto stránky je k dispozícií iba administrátorom.</h1>
+            </section>
+        <?php endif; ?>   
     </main>
     
     <?php require "../assets/footer.php" ?>
