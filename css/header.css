@@ -25,6 +25,7 @@ header {
 
 nav {
     margin-right: 1.875rem;
+    z-index: 1000;
 }
 
 nav li {

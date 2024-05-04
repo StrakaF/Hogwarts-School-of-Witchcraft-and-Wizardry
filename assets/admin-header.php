@@ -1,3 +1,10 @@
+<?php
+
+$roleForHeader = $_SESSION["role"];
+
+?>
+
+
 <header>
     <div class="logo">
         <a href="../index.php">
@@ -10,7 +17,10 @@
             <li><a href="students.php">Zoznam žiakov</a></li>
             <li><a href="add-student.php">Pridať žiaka</a></li>
             <li><a href="log-out.php">Odhlásiť sa</a></li>
-            <li><a href="photos.php">Fotky</a></li>
+            <?php if($roleForHeader === "admin"): ?>
+                <li><a href="photos.php">Fotky</a></li>
+            <?php endif; ?>
+            
         </ul>
     </nav>
 
