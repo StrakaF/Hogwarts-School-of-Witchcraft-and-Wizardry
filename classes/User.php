@@ -107,6 +107,15 @@ class User {
         }
     }
 
+    /**
+     * Metóda getUserRole slúži na získanie role používateľa z databázy.
+     *
+     * @param PDO $connection Pripojenie k databáze.
+     * @param int $id ID používateľa, ktorého rolu chceme získať.
+     * @return string Rola používateľa.
+     * @throws Exception Ak nie je možné získať rolu používateľa.
+     */
+    
     public static function getUserRole($connection, $id) {
 
         $sql = "SELECT role 
