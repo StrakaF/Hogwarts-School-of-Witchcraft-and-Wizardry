@@ -11,3 +11,15 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+form {
+    width: 600px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
