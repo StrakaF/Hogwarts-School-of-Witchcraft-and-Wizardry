@@ -73,15 +73,16 @@
 <body>
     <?php require "../assets/admin-header.php" ?>
 
-    <?php 
-
-    if($role === "admin"){
-        require "../assets/student-form.php"; 
-    } else {
-        echo "<h1>Obsah tejto stránky je k dispozícií iba administrátorom.</h1>";
-    }
+    <main>
+        <?php 
+            if($role === "admin"){
+                require "../assets/student-form.php"; 
+            } else {
+                echo "<h1>Obsah tejto stránky je k dispozícií iba administrátorom.</h1>";
+            }
+        ?>
+    </main>
     
-    ?>
 
     <?php require "../assets/footer.php"; ?>
 
