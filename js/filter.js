@@ -22,5 +22,6 @@ const studentsObjects = allOneStudentsArray.map( (oneStudent, index) => {
 });
 
 input.addEventListener("input", () => {
-    
+    const inputText = input.value.toLowerCase();
+    console.log(inputText);
 })
