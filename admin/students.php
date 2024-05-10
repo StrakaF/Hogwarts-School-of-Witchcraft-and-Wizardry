@@ -68,5 +68,6 @@ $students = Student::getAllStudents($connection,"id, first_name, second_name");
     <?php require "../assets/footer.php" ?>
 
     <script src="../js/header.js"></script>
+    <script src="../js/filter.js"></script>
 </body>
 </html>
