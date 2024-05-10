@@ -23,5 +23,8 @@ const studentsObjects = allOneStudentsArray.map( (oneStudent, index) => {
 
 input.addEventListener("input", () => {
     const inputText = input.value.toLowerCase();
-    console.log(inputText);
+    
+    const filteredStudents = studentsObjects.filter( (oneStudent) => {
+        return oneStudent.studentsName.toLowerCase().includes(inputText);
+    })
 })
