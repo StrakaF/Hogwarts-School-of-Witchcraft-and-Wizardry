@@ -43,6 +43,10 @@ $students = Student::getAllStudents($connection,"id, first_name, second_name");
             <h1>Zoznam žiakov školy</h1>
         </section>
 
+        <section class="filter">
+            <input type="text" class="filter-input">
+        </section>
+
         <section class="students-list">
             <?php if(empty($students)): ?>
                 <p>Žiaci sa nenašli.</p>
