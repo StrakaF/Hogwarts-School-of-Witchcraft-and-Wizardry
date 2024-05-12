@@ -27,4 +27,6 @@ input.addEventListener("input", () => {
     const filteredStudents = studentsObjects.filter( (oneStudent) => {
         return oneStudent.studentsName.toLowerCase().includes(inputText);
     })
+
+    allStudentsDiv.textContent = "";
 })
