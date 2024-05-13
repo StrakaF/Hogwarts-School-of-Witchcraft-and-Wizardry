@@ -34,5 +34,9 @@ input.addEventListener("input", () => {
     filteredStudents.map( (oneFilteredStudent) => {
         const newDiv = document.createElement("div");
         newDiv.classList.add("one-student");
+
+        const newH2 = document.createElement("h2");
+        newH2.textContent = oneFilteredStudent.studentsName;
+        newDiv.append(newH2);
     })
 })
