@@ -32,13 +32,19 @@ input.addEventListener("input", () => {
     allStudentsDiv.textContent = "";
 
     filteredStudents.map( (oneFilteredStudent) => {
+        // Created div element with class one-student
         const newDiv = document.createElement("div");
         newDiv.classList.add("one-student");
 
+        // Created h2 with name of filtered student, appended to div
         const newH2 = document.createElement("h2");
         newH2.textContent = oneFilteredStudent.studentsName;
         newDiv.append(newH2);
 
+        // Appended "a" tag to div
         newDiv.append(oneFilteredStudent.studentsLink);
+
+        // Completed div added to container for all students 
+        allStudentsDiv.append(newDiv);
     })
 })
