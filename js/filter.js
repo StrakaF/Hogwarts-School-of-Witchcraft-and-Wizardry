@@ -28,5 +28,10 @@ input.addEventListener("input", () => {
         return oneStudent.studentsName.toLowerCase().includes(inputText);
     })
 
+    // Hide every student when start writing to input 
     allStudentsDiv.textContent = "";
+
+    filteredStudents.map( (oneFilteredStudent) => {
+        const newDiv = document.createElement("div");
+    })
 })
