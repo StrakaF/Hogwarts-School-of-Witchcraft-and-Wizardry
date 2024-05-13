@@ -33,5 +33,6 @@ input.addEventListener("input", () => {
 
     filteredStudents.map( (oneFilteredStudent) => {
         const newDiv = document.createElement("div");
+        newDiv.classList.add("one-student");
     })
 })
