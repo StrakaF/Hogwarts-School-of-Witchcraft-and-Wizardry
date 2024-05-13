@@ -38,5 +38,7 @@ input.addEventListener("input", () => {
         const newH2 = document.createElement("h2");
         newH2.textContent = oneFilteredStudent.studentsName;
         newDiv.append(newH2);
+
+        newDiv.append(oneFilteredStudent.studentsLink);
     })
 })
