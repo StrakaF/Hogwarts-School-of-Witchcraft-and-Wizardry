@@ -12,7 +12,12 @@ const allOneStudentsArray = Array.from(allOneStudents);
 // Div with all students on page
 const allStudentsDiv = document.querySelector(".all-students");
 
+// MAP EACH STUDENT TO OBJECT (ID, NAME, A TAG) 
+
 // Students to object
+/** this code goes through all the students in the original allOneStudentsArray, 
+ * creates new objects for each student with their ID, name, and reference, 
+ * and stores those objects in a new studentsObjects array. */
 const studentsObjects = allOneStudentsArray.map( (oneStudent, index) => {
     return {
         id: index,
@@ -20,6 +25,8 @@ const studentsObjects = allOneStudentsArray.map( (oneStudent, index) => {
         studentsLink: oneStudent.querySelector("a")
     }
 });
+
+// FILTERING BASED ON INPUT TEXT
 
 input.addEventListener("input", () => {
     const inputText = input.value.toLowerCase();
