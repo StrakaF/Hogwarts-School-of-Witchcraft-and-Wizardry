@@ -1,5 +1,16 @@
 main {
     min-height: 100vh;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background: black;
     padding-bottom: 3.125rem;
 }
+
+.upload-photos {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}   
+
+
+
