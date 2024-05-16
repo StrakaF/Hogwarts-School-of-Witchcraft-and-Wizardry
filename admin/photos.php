@@ -43,8 +43,10 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
         <section class="upload-photos">
             <h1>Fotky</h1>
             <form action="upload-photos.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="image" require>
-                <input type="submit" value="Nahrať obrázok" name="submit">
+                <label for="choose-file">Vybrať obrázok</label>
+                <input type="file" id="choose-file" name="image" require>
+
+                <input type="submit" class="upload-file" value="Nahrať obrázok" name="submit">
             </form>
         </section>
 
