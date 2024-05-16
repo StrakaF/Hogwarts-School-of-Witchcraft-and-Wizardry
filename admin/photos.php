@@ -30,6 +30,7 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-photos.css">
     <!-- Query links -->
     <link rel="stylesheet" href="../query/header-query.css">
     <!-- Fontawesome icons -->
