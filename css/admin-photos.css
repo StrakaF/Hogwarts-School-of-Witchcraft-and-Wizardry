@@ -12,5 +12,13 @@ main {
     align-items: center;
 }   
 
+.upload-photos h1 {
+    margin-top: 20px;
+}
+
+.upload-photos form {
+    display: flex;
+    flex-direction: column;
+}
 
 
