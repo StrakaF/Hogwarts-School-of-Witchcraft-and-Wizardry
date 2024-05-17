@@ -50,3 +50,7 @@ main {
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.images img {
+    width: 300px;
+}
