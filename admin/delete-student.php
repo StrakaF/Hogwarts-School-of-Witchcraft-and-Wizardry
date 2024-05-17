@@ -34,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-delete-student.css">
     <!-- Query links -->
     <link rel="stylesheet" href="../query/header-query.css">
     <!-- Fontawesome icons -->
@@ -46,9 +47,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     
     <main>
         <?php if($role === "admin" ): ?>
+            
             <section class="delete-form">
+            <h1>Naozaj chcete vymazať žiaka?</h1>
                 <form method="POST">
-                    <button>Potvrdiť zmazanie</button>
+                    <button >Potvrdiť zmazanie</button>
                     <a href="one-student.php?id=<?=$_GET['id']?>">Zrušiť</a>
                 </form>
             </section>
