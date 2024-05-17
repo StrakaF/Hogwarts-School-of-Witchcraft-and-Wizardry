@@ -4,6 +4,7 @@ main {
     padding-bottom: 3.125rem;
 }
 
+/* UPLOAD PHOTOS SECTION */
 .upload-photos {
     color: #fff;
     display: flex;
@@ -40,4 +41,12 @@ main {
     margin-bottom: 20px;
     border: none;
     padding: 5px 10px;
+}
+
+/* IMAGES SECTION */
+.images article{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
