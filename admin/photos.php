@@ -58,9 +58,9 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
                         <div>
                             <img src=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> alt="image">
                         </div>
-                        <div>
-                            <a href=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> download>Stiahnuť</a>
-                            <a href="delete-photo.php?id=<?= $user_id ?>&image_name=<?= $one_image['image_name'] ?>">Zmazať</a>
+                        <div class="images-btn">
+                            <a class="images-btn-download" href=<?= '../uploads/' . $user_id . '/' . $one_image['image_name'] ?> download>Stiahnuť</a>
+                            <a class="images-btn-delete" href="delete-photo.php?id=<?= $user_id ?>&image_name=<?= $one_image['image_name'] ?>">Zmazať</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
