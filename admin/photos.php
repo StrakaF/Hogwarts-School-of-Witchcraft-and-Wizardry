@@ -46,7 +46,7 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
             <form action="upload-photos.php" method="POST" enctype="multipart/form-data">
                 <label for="choose-file" id="choose-file-text">Vybrať obrázok</label>
                 <input type="file" id="choose-file" name="image" require>
-
+                <span id="file-name"></span>
                 <input type="submit" class="upload-file" value="Nahrať obrázok" name="submit">
             </form>
         </section>
@@ -70,6 +70,7 @@ $allImages = Image::getImagesByUserId($connection, $user_id);
 
     <?php require "../assets/footer.php" ?>
     <script src="../js/header.js"></script>
+    <script src="../js/photos.js"></script>
 </body>
 </html>
 

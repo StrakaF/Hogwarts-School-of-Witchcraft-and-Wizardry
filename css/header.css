@@ -35,6 +35,7 @@ nav li {
 }
 
 nav li a {
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
     color: #fff;
 }
