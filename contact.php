@@ -1,3 +1,17 @@
+<?php 
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $first_name = $_POST["first-name"];
+    $second_name = $_POST["second-name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
