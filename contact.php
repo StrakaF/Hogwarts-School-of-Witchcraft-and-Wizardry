@@ -9,7 +9,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = $_POST["first-name"];
     $second_name = $_POST["second-name"];
     $email = $_POST["email"];
-    $message = $_POST["message"]; 
+    $message = $_POST["message"];
+
+    $errors = [];
+
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        $errors[] = "Neplatný formát emailu.";
+    }
+
+    if(empty($errors)){
+        
+    }
 }
 
 ?>
