@@ -38,23 +38,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input  type="text" 
                         name="first-name" 
                         placeholder="Krstné meno"
-                        value=$first_name 
+                        value="<?= $first_name; ?>"
                         required><br>
 
                 <input  type="text" 
                         name="second-name" 
-                        placeholder="Priezvisko" 
+                        placeholder="Priezvisko"
+                        value="<?= $second_name; ?>" 
                         required><br>
 
                 <input  type="email" 
                         name="email" 
-                        placeholder="Email" 
+                        placeholder="Email"
+                        value="<?= $email; ?>" 
                         required><br>
 
-                <textarea   name="message" 
-                            placeholder="Vaša správa" 
-                            required>
-                </textarea><br>
+                <textarea name="message" placeholder="Vaša správa" required><?= htmlspecialchars($message); ?></textarea><br>
 
                 <button>Odoslať</button>
             </form>
