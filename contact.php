@@ -17,7 +17,15 @@
     <?php require "assets/header.php"; ?>
 
     <main>
-        <h1>Kontaktný formulár</h1>
+        <section class="form">
+            <form action="contact.php" method="POST">
+                <input type="text" name="first-name" placeholder="Krstné meno" required><br>
+                <input type="text" name="second-name" placeholder="Priezvisko" required><br>
+                <input type="email" name="email" placeholder="Email" required><br>
+                <textarea name="message" placeholder="Vaša správa" required></textarea><br>
+                <button>Odoslať</button>
+            </form>
+        </section>
     </main>
 
     <?php require "assets/footer.php"; ?>
