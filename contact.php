@@ -1,14 +1,16 @@
 <?php 
 
+    $first_name ="";
+    $second_name ="";
+    $email ="";
+    $message ="";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = $_POST["first-name"];
     $second_name = $_POST["second-name"];
     $email = $_POST["email"];
-    $message = $_POST["message"];
+    $message = $_POST["message"]; 
 }
-
-
-
 
 ?>
 
@@ -33,10 +35,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main>
         <section class="form">
             <form action="contact.php" method="POST">
-                <input type="text" name="first-name" placeholder="Krstné meno" required><br>
-                <input type="text" name="second-name" placeholder="Priezvisko" required><br>
-                <input type="email" name="email" placeholder="Email" required><br>
-                <textarea name="message" placeholder="Vaša správa" required></textarea><br>
+                <input  type="text" 
+                        name="first-name" 
+                        placeholder="Krstné meno"
+                        value=$first_name 
+                        required><br>
+
+                <input  type="text" 
+                        name="second-name" 
+                        placeholder="Priezvisko" 
+                        required><br>
+
+                <input  type="email" 
+                        name="email" 
+                        placeholder="Email" 
+                        required><br>
+
+                <textarea   name="message" 
+                            placeholder="Vaša správa" 
+                            required>
+                </textarea><br>
+
                 <button>Odoslať</button>
             </form>
         </section>
