@@ -74,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/contact.css">
     <!-- Query links -->
     <link rel="stylesheet" href="./query/header-query.css">
     <!-- Fontawesome icons -->
@@ -95,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </section>
         <section class="form">
             <form action="contact.php" method="POST">
+                <h1>Kontaktujte nás</h1>
                 <input  type="text" 
                         name="first-name" 
                         placeholder="Krstné meno"
