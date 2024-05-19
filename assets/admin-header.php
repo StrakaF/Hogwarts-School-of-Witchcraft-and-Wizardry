@@ -7,7 +7,7 @@ $roleForHeader = $_SESSION["role"];
 
 <header>
     <div class="logo">
-        <a href="../index.php">
+        <a href="students.php">
             <img src="../img/hogwarts-logo.png" alt="Hogwarts-logo">
         </a>
     </div>
