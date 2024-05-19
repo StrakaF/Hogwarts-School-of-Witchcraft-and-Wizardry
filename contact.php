@@ -43,12 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->Host = "smtp.gmail.com";
             $mail->SMTPAuth = true;
             $mail->Username = "straka168@gmail.com"; // Sended from here
-            $mail->Password = "jqzkianlbnlbseas";
+            $mail->Password = "jqzkianlbnlbseas"; // Hashed password 
             $mail->SMTPSecure = "ssl";
             $mail->Port = 465;
+            $mail->CharSet = "UTF-8";
+            $mail->Encoding = "base64";
 
-            $mail->setFrom("straka168@gmail.com");  // Arrived here
-            $mail->addAddress("straka168@gmail.com");   // Also here
+            $mail->setFrom("straka168@gmail.com");  // Sender from (same as Username)
+            $mail->addAddress("straka168@gmail.com");   // Recipient
+            $mail->addAddress("figgo168@azet.sk");   // Recipient
             $mail->Subject = "Bradavice-projekt-form";
             $mail->Body = "Meno: {$first_name} {$second_name} \n Email: {$email} \n Správa: {$message}";
             $mail->send();
