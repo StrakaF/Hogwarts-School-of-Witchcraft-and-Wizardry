@@ -50,8 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->setFrom("straka168@gmail.com");  // Arrived here
             $mail->addAddress("straka168@gmail.com");   // Also here
             $mail->Subject = "Bradavice-projekt-form";
-            $mail->Body = "Kontaktný formulár bol vyplnený.";
-
+            $mail->Body = "Meno: {$first_name} {$second_name} \n Email: {$email} \n Správa: {$message}";
             $mail->send();
 
             echo "Správa odoslaná";
