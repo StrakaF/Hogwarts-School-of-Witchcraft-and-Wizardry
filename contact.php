@@ -56,8 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <main>
         <section class="errors">
-            <?php if(empty($errors)):?>
-
+            <?php if(!empty($errors)):?>
+                <ul>
+                    <?php foreach($errors as $one_error): ?>
+                        <li><?= $one_error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
             <?php endif;?>
         </section>
         <section class="form">
