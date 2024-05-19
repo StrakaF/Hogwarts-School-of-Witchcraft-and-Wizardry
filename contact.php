@@ -13,8 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $errors = [];
 
+    if($first_name === ""){
+        $errors[] = "Prosím, vložte do formuláru vaše krstné meno.";
+    }
+
+    if($second_name === ""){
+        $errors[] = "Prosím, vložte do formuláru vaše priezvisko.";
+    }
+
     if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
         $errors[] = "Neplatný formát emailu.";
+    }
+
+    if($message === ""){
+        $errors[] = "Prosím, napíšte do formuláru správu.";
     }
 
     if(empty($errors)){
@@ -43,6 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php require "assets/header.php"; ?>
 
     <main>
+        <section class="errors">
+            <?php if(empty($errors)):?>
+
+            <?php endif;?>
+        </section>
         <section class="form">
             <form action="contact.php" method="POST">
                 <input  type="text" 
