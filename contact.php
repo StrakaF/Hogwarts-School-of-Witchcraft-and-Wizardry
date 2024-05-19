@@ -1,4 +1,10 @@
 <?php 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'vendor/PHPMailer/src/Exception.php';
+    require 'vendor/PHPMailer/src/PHPMailer.php';
+    require 'vendor/PHPMailer/src/SMTP.php';
 
     $first_name ="";
     $second_name ="";
