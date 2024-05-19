@@ -36,7 +36,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if(empty($errors)){
-        
+        $mail = new PHPMailer(true);
+
+        try {
+            $mail->isSMTP();
+            $mail->Host = "smtp.gmail.com";
+            $mail->SMTPAuth = true;
+            $mail->Username = "straka168@gmail.com"; // Sended from here
+            $mail->Password = "jqzkianlbnlbseas";
+            $mail->SMTPSecure = "ssl";
+            $mail->Port = 465;
+
+            $mail->setFrom("straka168@gmail.com");  // Arrived here
+            $mail->addAddress("straka168@gmail.com");   // Also here
+            $mail->Subject = "Bradavice-projekt-form";
+            $mail->Body = "Kontaktný formulár bol vyplnený.";
+
+            $mail->send();
+
+            echo "Správa odoslaná";
+        } catch (Exception $e) {
+            echo "Správa nebola odoslaná: ", $mail->ErrorInfo;
+        }
     }
 }
 
